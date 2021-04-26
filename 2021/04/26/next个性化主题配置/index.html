@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/project/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/project/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/project/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/project/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/project/css/main.css">
+
+
+<link rel="stylesheet" href="/project/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fast2021.github.io","root":"/project/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="hexo+next个性化配置  Hexo+next主题配置踩的坑下载安装完next主题后才发现一堆的坑。由于next的版本不同。所以有的配置文件和网上的教程不大一样。自己踩了N多坑，于是打算记录一下。于是自己试了好几天才差不多配置好。但是网站图标就是显示不出来。我是真哭辽。下面开始具体配置： 下载安装next主题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo+next个性化配置">
+<meta property="og:url" content="https://fast2021.github.io/project/2021/04/26/next%E4%B8%AA%E6%80%A7%E5%8C%96%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="阿宝的小屋">
+<meta property="og:description" content="hexo+next个性化配置  Hexo+next主题配置踩的坑下载安装完next主题后才发现一堆的坑。由于next的版本不同。所以有的配置文件和网上的教程不大一样。自己踩了N多坑，于是打算记录一下。于是自己试了好几天才差不多配置好。但是网站图标就是显示不出来。我是真哭辽。下面开始具体配置： 下载安装next主题">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-26T14:09:05.000Z">
+<meta property="article:modified_time" content="2021-04-26T15:53:30.813Z">
+<meta property="article:author" content="功夫大侠">
+<meta property="article:tag" content="hexo使用">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://fast2021.github.io/project/2021/04/26/next%E4%B8%AA%E6%80%A7%E5%8C%96%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>hexo+next个性化配置 | 阿宝的小屋</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/project/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿宝的小屋</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/project/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/project/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/project/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fast2021.github.io/project/2021/04/26/next%E4%B8%AA%E6%80%A7%E5%8C%96%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/project/images/1.gif">
+      <meta itemprop="name" content="功夫大侠">
+      <meta itemprop="description" content="欢迎常来做做哦：）">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿宝的小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          hexo+next个性化配置
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-26 22:09:05 / 修改时间：23:53:30" itemprop="dateCreated datePublished" datetime="2021-04-26T22:09:05+08:00">2021-04-26</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/project/2021/04/26/next%E4%B8%AA%E6%80%A7%E5%8C%96%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/project/2021/04/26/next%E4%B8%AA%E6%80%A7%E5%8C%96%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="hexo-next个性化配置"><a href="#hexo-next个性化配置" class="headerlink" title="hexo+next个性化配置"></a>hexo+next个性化配置</h1><hr>
+<hr>
+<h2 id="Hexo-next主题配置踩的坑"><a href="#Hexo-next主题配置踩的坑" class="headerlink" title="Hexo+next主题配置踩的坑"></a><code>Hexo+next</code>主题配置踩的坑</h2><p>下载安装完next主题后才发现一堆的坑。由于next的版本不同。所以有的配置文件和网上的教程不大一样。自己踩了N多坑，于是打算记录一下。于是自己试了好几天才差不多配置好。但是网站图标就是显示不出来。我是真哭辽。下面开始具体配置：</p>
+<h2 id="下载安装next主题"><a href="#下载安装next主题" class="headerlink" title="下载安装next主题"></a>下载安装next主题</h2><span id="more"></span>
+<p>下载next主题，只需输入指令：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-<span class="built_in">next</span>/hexo-theme-<span class="built_in">next</span> themes/<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+
+<p>但是速度会比较慢。因为众所周知的原因。可以多尝试几下。然后如果要想更新主题的话，可以</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd themes/<span class="built_in">next</span></span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后到博客的根目录下的<code>_config.yml</code>文件中更改为next主题即可。</p>
+<h2 id="Next主题下-config-yml的配置"><a href="#Next主题下-config-yml的配置" class="headerlink" title="Next主题下_config.yml的配置"></a>Next主题下<code>_config.yml</code>的配置</h2><h3 id="SITE设置"><a href="#SITE设置" class="headerlink" title="SITE设置"></a>SITE设置</h3><p><code>title:</code> 填写标题 <code>subtitle:</code> 填写副标题 <code>description:</code> 简介 <code>keywords:</code> 关键词 <code>author:</code> 作者，文章中显示的作者名称 <code>language:</code> 设置语言，<code>zh-CN</code>是简体中文，<code>en</code>是英语</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line">title: 嵌入式的一只菜鸟</span><br><span class="line">subtitle: <span class="string">&#x27;&#x27;</span></span><br><span class="line">description: <span class="string">&#x27;永远相信美好的事情即将发生&#x27;</span></span><br><span class="line">keywords:</span><br><span class="line">author: WYW</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: <span class="string">&#x27;Asia/Shanghai&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="URL设置"><a href="#URL设置" class="headerlink" title="URL设置"></a>URL设置</h3><p>我用的是国内的码云搭建的博客。<code>url</code>设置的时候一般情况就是设置为你创建的仓库名字。或者就是你博客的网址。root这里的话就写你博客的仓库名字。其余都默认就可以。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="comment">## If your site is put in a subdirectory, set url as &#x27;http://yoursite.com/child&#x27; and root as &#x27;/child/&#x27;</span></span><br><span class="line">url:  http://xxxxxx/xxxxx</span><br><span class="line">root: /blog2</span><br><span class="line">permalink: :year/:month/:day/:title/</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true <span class="comment"># Set to false to remove trailing &#x27;index.html&#x27; from permalinks</span></span><br><span class="line">  trailing_html: true <span class="comment"># Set to false to remove trailing &#x27;.html&#x27; from permalinks</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="翻页设置"><a href="#翻页设置" class="headerlink" title="翻页设置"></a>翻页设置</h3><p>per_page用于控制每页显示多少篇博客文章。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Home page setting</span></span><br><span class="line"><span class="comment"># path: Root path for your blogs index page. (default = &#x27;&#x27;)</span></span><br><span class="line"><span class="comment"># per_page: Posts displayed per page. (0 = disable pagination)</span></span><br><span class="line"><span class="comment"># order_by: Posts order. (Order by date descending by default)</span></span><br><span class="line">index_generator:</span><br><span class="line">  path: <span class="string">&#x27;&#x27;</span></span><br><span class="line">  per_page: <span class="number">10</span></span><br><span class="line">  order_by: -date</span><br></pre></td></tr></table></figure>
+
+<h3 id="Deployment设置"><a href="#Deployment设置" class="headerlink" title="Deployment设置"></a>Deployment设置</h3><p>这里的设置就是你上传博客内容到你的仓库的方式。也就是git方式。repo替换为你自己的就可以。获取这个repo在各个平台都是大同小异的。分支的话我们这里填写master.因为初始化仓库默认是master分支。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/deployment.html</span></span><br><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  repository:  git@gitee.com:yourname/blog2.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+
+<h2 id="Next主题下的-config-yml的配置。"><a href="#Next主题下的-config-yml的配置。" class="headerlink" title="Next主题下的_config.yml的配置。"></a>Next主题下的<code>_config.yml</code>的配置。</h2><h3 id="网站logo设置："><a href="#网站logo设置：" class="headerlink" title="网站logo设置："></a>网站logo设置：</h3><p>反正我配置Logo就是不好使，图片路径什么都是正确的，结果就是不好使。有毒。你把你要想要的图片放进\themes\next\source\images这个路径下。但是图片尺寸要正确。下面我推荐一个网站，上面的<a href="https://link.zhihu.com/?target=https://www.easyicon.net/iconsearch/%E6%A0%91%E8%8E%93%E6%B4%BE/?s=addtime_DESC">图标</a>很多。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: http://xxxxxx/xxxxxx/images/favicon-16x16-<span class="built_in">next</span>.png</span><br><span class="line">  medium: http://xxxxxx/xxxxxx/images/favicon-32x32-<span class="built_in">next</span>.png</span><br><span class="line">  <span class="comment"># apple_touch_icon: /images/apple-touch-icon-next.png</span></span><br><span class="line">  <span class="comment"># safari_pinned_tab: /images/logo.svg</span></span><br><span class="line">  <span class="comment">#android_manifest: /images/manifest.json</span></span><br><span class="line">  <span class="comment">#ms_browserconfig: /images/browserconfig.xml</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="页脚设置："><a href="#页脚设置：" class="headerlink" title="页脚设置："></a>页脚设置：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">footer:</span><br><span class="line">  <span class="comment"># Specify the date when the site was setup. If not defined, current year will be used.</span></span><br><span class="line">  since: <span class="number">2020</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Icon between year and copyright info.</span></span><br><span class="line">  icon:</span><br><span class="line">    <span class="comment"># Icon name in Font Awesome. See: https://fontawesome.com/v4.7.0/icons/</span></span><br><span class="line">    <span class="comment"># `heart` is recommended with animation in red (#ff0000).</span></span><br><span class="line">    name: heart</span><br><span class="line">    <span class="comment"># If you want to animate the icon, set it to true.</span></span><br><span class="line">    animated: true</span><br><span class="line">    <span class="comment"># Change the color of icon, using Hex Code.</span></span><br><span class="line">    color: <span class="string">&quot;#808080&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># If not defined, `author` from Hexo `_config.yml` will be used.</span></span><br><span class="line">  copyright: WYW@HD</span><br><span class="line"></span><br><span class="line">  powered:</span><br><span class="line">    <span class="comment"># Hexo link (Powered by Hexo).</span></span><br><span class="line">    enable: false</span><br><span class="line">    <span class="comment"># Version info of Hexo after Hexo link (vX.X.X).</span></span><br><span class="line">    version: false</span><br><span class="line"></span><br><span class="line">  theme:</span><br><span class="line">    <span class="comment"># Theme &amp; scheme info link (Theme - NexT.scheme).</span></span><br><span class="line">    enable: false</span><br><span class="line">    <span class="comment"># Version info of NexT after scheme info (vX.X.X).</span></span><br><span class="line">    version: false</span><br></pre></td></tr></table></figure>
+
+<p>页脚设置就是网页最底下那一部分。鸽了n天后决定接着写。指的是下面图这一部分。</p>
+<p>since指的是你博客开始的年份，icon的话默认的是心形。animated设置为true是显示。false则是关闭。<code>colour</code>指的是Icon的颜色。copyright如果没有提到的话则默认用的是你根目录下<code>_config.yml</code>中设置的作者名字，这里我设置的都是一样的。都是一个名字。powered指的是页面下是否显示<code>hexo</code>和<code>hexo</code>的版本。true就是显示。反之<code>false</code>。<code>theme</code>也是类似的。</p>
+<h3 id="Next主题风格："><a href="#Next主题风格：" class="headerlink" title="Next主题风格："></a>Next主题风格：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="comment">#scheme: Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment"># scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+
+<p>next的主题风格一共是有四种，在这里我用的是最后一种： Gemini。其它类型的风格可能配置后略有不同，自己可以尝试一下。</p>
+<h3 id="菜单栏设置："><a href="#菜单栏设置：" class="headerlink" title="菜单栏设置："></a>菜单栏设置：</h3><p>菜单栏的设置刚开始配置文件中都是注释起来的，自己需要哪个把注释取消掉即可。效果如图所示：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Menu Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Usage: `Key: /link/ || icon`</span></span><br><span class="line"><span class="comment"># Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.</span></span><br><span class="line"><span class="comment"># Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.</span></span><br><span class="line"><span class="comment"># When running the site in a subdirectory (e.g. yoursite.com/blog), remove the leading slash from link value (/archives -&gt; archives).</span></span><br><span class="line"><span class="comment"># External url should start with http:// or https://</span></span><br><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  <span class="comment"># schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat</span></span><br><span class="line">  links: /links/ || link</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable / Disable menu icons / item badges.</span></span><br><span class="line">menu_settings:</span><br><span class="line">  icons: true</span><br><span class="line">  badges: true</span><br></pre></td></tr></table></figure>
+
+<p>举个例子，home对应的就是图片上方的首页。那么这个中文名称是在哪个文件更改呢？下面就是在博客根目录下的\themes\next\languages这个路径下的<code>zh-CN.yml</code>.打开后就可以看到了:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: 首页</span><br><span class="line">  archives: 时间轴</span><br><span class="line">  categories: 文章分类</span><br><span class="line">  tags: 文章标签</span><br><span class="line">  about: 关于作者</span><br><span class="line">  search: 搜索</span><br><span class="line">  schedule: 日历</span><br><span class="line">  links: 友情链接</span><br><span class="line">  sitemap: 站点地图</span><br><span class="line">  commonweal: 公益 <span class="number">404</span></span><br></pre></td></tr></table></figure>
+
+<p><code>meau_settings</code>下面的俩个参数默认即可。</p>
+<h3 id="侧边栏设置："><a href="#侧边栏设置：" class="headerlink" title="侧边栏设置："></a>侧边栏设置：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Sidebar Settings</span></span><br><span class="line"><span class="comment"># See: https://theme-next.org/docs/theme-settings/sidebar</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line">sidebar:</span><br><span class="line">  <span class="comment"># Sidebar Position.</span></span><br><span class="line">  <span class="comment"># position: left</span></span><br><span class="line">  position: right</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Manual define the sidebar width. If commented, will be default for:</span></span><br><span class="line">  <span class="comment"># Muse | Mist: 320</span></span><br><span class="line">  <span class="comment"># Pisces | Gemini: 240</span></span><br><span class="line">  width: <span class="number">320</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Sidebar Display (only for Muse | Mist), available values:</span></span><br><span class="line">  <span class="comment">#  - post    expand on posts automatically. Default.</span></span><br><span class="line">  <span class="comment">#  - always  expand for all pages automatically.</span></span><br><span class="line">  <span class="comment">#  - hide    expand only when click on the sidebar toggle icon.</span></span><br><span class="line">  <span class="comment">#  - remove  totally remove sidebar including sidebar toggle.</span></span><br><span class="line">  display: post</span><br><span class="line"></span><br><span class="line">  <span class="comment"># Sidebar padding in pixels.</span></span><br><span class="line">  padding: <span class="number">18</span></span><br><span class="line">  <span class="comment"># Sidebar offset from top menubar in pixels (only for Pisces | Gemini).</span></span><br><span class="line">  offset: <span class="number">12</span></span><br><span class="line">  <span class="comment"># Enable sidebar on narrow view (only for Muse | Mist).</span></span><br><span class="line">  onmobile: true</span><br><span class="line"></span><br><span class="line"><span class="comment"># Sidebar Avatar</span></span><br><span class="line">avatar:</span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  url: /images/avatar.png</span><br><span class="line">  <span class="comment"># If true, the avatar will be dispalyed in circle.</span></span><br><span class="line">  rounded:  true</span><br><span class="line">  <span class="comment"># If true, the avatar will be rotated with the cursor.</span></span><br><span class="line">  rotated:  true</span><br><span class="line"></span><br><span class="line"><span class="comment"># Posts / Categories / Tags in sidebar.</span></span><br><span class="line">site_state: true</span><br></pre></td></tr></table></figure>
+
+<p>position设置的是侧边栏的位置，width设置的是宽度，默认即可，avatar指的头像的具体设置，<code>url</code>指的是你头像的路径，你可以把你想用的图像照片放进博客根目录下的\themes\next\source\images这个路径下，但是头像尺寸大小要符合，大小为512*512.rounded:指的是头像是否以圆形展示，true就是开启。rotated指的是把鼠标放在头像上的时候是否旋转。</p>
+<h3 id="社交链接："><a href="#社交链接：" class="headerlink" title="社交链接："></a>社交链接：</h3><p>社交链接下面需要什么把相应的注释去掉即可。加上自己的链接即可。或者可以将它原来的名字修改为你要的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Social Links</span></span><br><span class="line"><span class="comment"># Usage: `Key: permalink || icon`</span></span><br><span class="line"><span class="comment"># Key is the link label showing to end users.</span></span><br><span class="line"><span class="comment"># Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.</span></span><br><span class="line">social:</span><br><span class="line">  GitHub: https://github.com/wywaihandan || github</span><br><span class="line">  E-Mail: <span class="number">2838177495</span>@qq.com|| envelope</span><br><span class="line">  CSDN: https://me.csdn.net/qq_44219883 ||stack-overflow</span><br><span class="line">  哔哩哔哩: https://space.bilibili.com/<span class="number">390161354</span> ||skype</span><br><span class="line">  <span class="comment">#Weibo: https://weibo.com/yourname || weibo</span></span><br><span class="line">  <span class="comment">#Google: https://plus.google.com/yourname || google</span></span><br><span class="line">  <span class="comment">#Twitter: https://twitter.com/yourname || twitter</span></span><br><span class="line">  <span class="comment">#FB Page: https://www.facebook.com/yourname || facebook</span></span><br><span class="line">  <span class="comment">#StackOverflow: https://stackoverflow.com/yourname || stack-overflow</span></span><br><span class="line">  <span class="comment">#YouTube: https://youtube.com/yourname || youtube</span></span><br><span class="line">  <span class="comment">#Instagram: https://instagram.com/yourname || instagram</span></span><br><span class="line">  <span class="comment">#Skype: skype:yourname?call|chat || skype</span></span><br><span class="line"></span><br><span class="line">social_icons:</span><br><span class="line">  enable: true</span><br><span class="line">  icons_only: false</span><br><span class="line">  transition: false</span><br></pre></td></tr></table></figure>
+
+<h3 id="打赏设置："><a href="#打赏设置：" class="headerlink" title="打赏设置："></a>打赏设置：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Reward (Donate)</span></span><br><span class="line"><span class="comment"># Front-matter variable (unsupport animation).</span></span><br><span class="line">reward_settings:</span><br><span class="line">  <span class="comment"># If true, reward will be displayed in every article by default.</span></span><br><span class="line">  enable: true</span><br><span class="line">  animation: true</span><br><span class="line">  comment: 坚持原创技术分享，您的支持将鼓励我继续创作！.</span><br><span class="line"></span><br><span class="line">reward:</span><br><span class="line">  wechatpay: /images/wechat.jpg</span><br><span class="line">  alipay: /images/alipay.jpg</span><br><span class="line"></span><br><span class="line">  <span class="comment">#paypal: /images/paypal.png</span></span><br><span class="line">  <span class="comment">#bitcoin: /images/bitcoin.png</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Subscribe through Telegram Channel, Twitter, etc.</span></span><br><span class="line"><span class="comment"># Usage: `Key: permalink || icon` (Font Awesome)</span></span><br><span class="line">follow_me:</span><br><span class="line">  <span class="comment">#Twitter: https://twitter.com/username || twitter</span></span><br><span class="line">  <span class="comment">#Telegram: https://t.me/channel_name || telegram</span></span><br><span class="line">  WeChat: http://wyw_hd.gitee.io/blog2/images/<span class="number">6.j</span>pg || wechat</span><br><span class="line">  哔哩哔哩: https://space.bilibili.com/390161354?share_medium=android&amp;share_source=copy_link&amp;bbid=XY4332D4EDDC2E23C34503D72EE3B1E71BE02&amp;ts=1582201848748 || rss</span><br><span class="line">  <span class="comment"># RSS: /atom.xml || rss</span></span><br></pre></td></tr></table></figure>
+
+<p>enable设置为true则是开启打赏设置，comment则是显示的一句话，可以换成自己喜欢的，微信和支付宝的照片依旧放在博客根目录下的\themes\next\source\images中。<code>followe_me</code>下面的设置可以设置你的其他发布渠道，<code>wechat</code>我放的是我的公众号，哔哩哔哩的文章也有，只不过我最近太懒了，鸽了好久，具体设置完后的效果图如图所示：</p>
+<h3 id="文章底部评论设置："><a href="#文章底部评论设置：" class="headerlink" title="文章底部评论设置："></a>文章底部评论设置：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Valine</span></span><br><span class="line"><span class="comment"># For more information: https://valine.js.org, https://github.com/xCss/Valine</span></span><br><span class="line">valine:</span><br><span class="line">  enable: true</span><br><span class="line">  appid: *************** <span class="comment"># Your leancloud application appid</span></span><br><span class="line">  appkey: ***************** <span class="comment"># Your leancloud application appkey</span></span><br><span class="line">  notify: false <span class="comment"># Mail notifier</span></span><br><span class="line">  verify: false <span class="comment"># Verification code</span></span><br><span class="line">  placeholder: 留下你的评论吧 <span class="comment"># Comment box placeholder</span></span><br><span class="line">  avatar: mm <span class="comment"># Gravatar style</span></span><br><span class="line">  guest_info: nick,mail,link <span class="comment"># Custom comment header</span></span><br><span class="line">  pageSize: <span class="number">10</span> <span class="comment"># Pagination size</span></span><br><span class="line">  language: <span class="comment"># Language, available values: en, zh-cn</span></span><br><span class="line">  visitor: true <span class="comment"># Article reading statistic</span></span><br><span class="line">  comment_count: true <span class="comment"># If false, comment count will only be displayed in post page, not in home page</span></span><br><span class="line">  recordIP: true <span class="comment"># Whether to record the commenter IP</span></span><br><span class="line">  serverURLs: <span class="comment"># When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span></span><br><span class="line">  <span class="comment">#post_meta_order: 0</span></span><br></pre></td></tr></table></figure>
+
+<p>文章底部评论我刚开始用的<code>github</code>的<code>gittalk</code>，后来由于<code>github</code>的服务器在国外，速度太慢了。而且每次用都要初始化下评论，就放弃了<code>gittalk</code>评论。改用valine评论。使用valine需要先注册下账号然后实名认证。然后创建应用得到<code>appid</code>和<code>appkey</code>.该网站的链接为：**<a href="https://link.zhihu.com/?target=https://valine.js.org/quickstart.html">https://valine.js.org/quickstart.html</a>**。</p>
+<p>之后把<code>appid</code>和<code>appkey</code>填入即可。使能打开即可。</p>
+<h3 id="Github角标"><a href="#Github角标" class="headerlink" title="Github角标"></a>Github角标</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># `Follow me on GitHub` banner in the top-right corner.</span></span><br><span class="line">github_banner:</span><br><span class="line">  enable: true</span><br><span class="line">  permalink: https://github.com/Siriusq</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
+
+<p><code>enable:</code>用于设置是否在页面右上角显示<code>Github</code>三角标 <code>permalink:</code>后面填写你的<code>Github</code>地址 <code>title:</code>用于设置鼠标移动到图标后显示的文字</p>
+<h3 id="返回顶部按钮"><a href="#返回顶部按钮" class="headerlink" title="返回顶部按钮"></a>返回顶部按钮</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  <span class="comment"># Back to top in sidebar.</span></span><br><span class="line">  sidebar: true</span><br><span class="line">  <span class="comment"># Scroll percent label in b2t button.</span></span><br><span class="line">  scrollpercent: true</span><br></pre></td></tr></table></figure>
+
+<p><code>enable:</code>用于设置是否开启回到顶部按钮 <code>sidebar:</code>用于设置是否将按钮放到侧边栏中 <code>scrollpercent:</code>用于设置是否显示阅读进度百分比</p>
+<h3 id="文章搜索："><a href="#文章搜索：" class="headerlink" title="文章搜索："></a>文章搜索：</h3><p>可以方便快捷的搜索文章，但是需要安装插件：</p>
+<p>具体指令：</p>
+<p>```visual basic npm install hexo-generator-searchdb –save</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">之后找到以下内容改为下图即可。</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"># Local Search</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: false</span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: false</span><br></pre></td></tr></table></figure>
+
+<h2 id="动态背景"><a href="#动态背景" class="headerlink" title="动态背景"></a>动态背景</h2><p>Next主题默认提供了三种动态背景</p>
+<ul>
+<li><a href="https://link.zhihu.com/?target=https://github.com/theme-next/theme-next-canvas-nest">Canvas-nest</a></li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/theme-next/theme-next-three">JavaScript 3D library</a></li>
+<li><a href="https://link.zhihu.com/?target=https://github.com/theme-next/theme-next-canvas-ribbon">Canvas-ribbon</a></li>
+</ul>
+<h3 id="Canvas-nest"><a href="#Canvas-nest" class="headerlink" title="Canvas-nest"></a>Canvas-nest</h3><p>这是在网页背景显示的动态效果。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>切换到Next主题文件夹</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd themes/next</span><br></pre></td></tr></table></figure>
+
+<p>安装模块</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-canvas-nest source/lib/canvas-nest</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>打开Next主题路径下的配置文件<code>_config.yml</code>修改下列代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Canvas-nest</span><br><span class="line"># Dependencies: https://github.com/theme-next/theme-next-canvas-nest</span><br><span class="line">canvas_nest:</span><br><span class="line">  enable: <span class="literal">true</span></span><br><span class="line">  onmobile: true # 是否在手机上显示</span><br><span class="line">  color: &quot;255,51,51&quot; # RGB颜色设置</span><br><span class="line">  opacity: 0.5 # 线条透明度</span><br><span class="line">  zIndex: -1 # 显示级别</span><br><span class="line">  count: 160 # 线条的数量，越多越卡</span><br></pre></td></tr></table></figure>
+
+<p>如果想使用CDN加速的话需要设置</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">vendors:</span><br><span class="line">  ...</span><br><span class="line">  canvas_nest: <span class="comment">//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0.0/canvas-nest.min.js</span></span><br><span class="line">  canvas_nest_nomobile: <span class="comment">//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="网站运行时间"><a href="#网站运行时间" class="headerlink" title="网站运行时间"></a>网站运行时间</h2><p>打开<code>.\themes\next\layout\_partials\footer.swig</code>并添加下列代码</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">&lt;span id=&quot;timeDate&quot;&gt;载入天数...&lt;/span&gt;&lt;span id=&quot;times&quot;&gt;载入时分秒...&lt;/span&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    var now = new Date();</span><br><span class="line">    function createtime() &#123;</span><br><span class="line">        var grt= new Date(<span class="string">&quot;03/04/2020 00:00:00&quot;</span>);</span><br><span class="line">        now.setTime(now.getTime()+<span class="number">250</span>);</span><br><span class="line">        days = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> / <span class="number">24</span>; dnum = Math.floor(days);</span><br><span class="line">        hours = (now - grt ) / <span class="number">1000</span> / <span class="number">60</span> / <span class="number">60</span> - (<span class="number">24</span> * dnum); hnum = Math.floor(hours);</span><br><span class="line">        <span class="keyword">if</span>(String(hnum).length ==<span class="number">1</span> )&#123;hnum = <span class="string">&quot;0&quot;</span> + hnum;&#125; minutes = (now - grt ) / <span class="number">1000</span> /<span class="number">60</span> - (<span class="number">24</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * hnum);</span><br><span class="line">        mnum = Math.floor(minutes); <span class="keyword">if</span>(String(mnum).length ==<span class="number">1</span> )&#123;mnum = <span class="string">&quot;0&quot;</span> + mnum;&#125;</span><br><span class="line">        seconds = (now - grt ) / <span class="number">1000</span> - (<span class="number">24</span> * <span class="number">60</span> * <span class="number">60</span> * dnum) - (<span class="number">60</span> * <span class="number">60</span> * hnum) - (<span class="number">60</span> * mnum);</span><br><span class="line">        snum = Math.<span class="built_in">round</span>(seconds); <span class="keyword">if</span>(String(snum).length ==<span class="number">1</span> )&#123;snum = <span class="string">&quot;0&quot;</span> + snum;&#125;</span><br><span class="line">        document.getElementById(<span class="string">&quot;timeDate&quot;</span>).innerHTML = <span class="string">&quot;本站已安全运行 &quot;</span>+dnum+<span class="string">&quot; 天 &quot;</span>;</span><br><span class="line">        document.getElementById(<span class="string">&quot;times&quot;</span>).innerHTML = hnum + <span class="string">&quot; 小时 &quot;</span> + mnum + <span class="string">&quot; 分 &quot;</span> + snum + <span class="string">&quot; 秒&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">setInterval(<span class="string">&quot;createtime()&quot;</span>,<span class="number">250</span>);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码可以修改为你创建博客的时间，</p>
+<h3 id="访客统计-："><a href="#访客统计-：" class="headerlink" title="访客统计 ："></a>访客统计 ：</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Show Views / Visitors of the website / page with busuanzi.</span></span><br><span class="line"><span class="comment"># Get more information on http://ibruce.info/2015/04/04/busuanzi</span></span><br><span class="line">busuanzi_count:</span><br><span class="line">  enable: true</span><br><span class="line">  total_visitors: true</span><br><span class="line">  total_visitors_icon: user</span><br><span class="line">  total_views: true</span><br><span class="line">  total_views_icon: eye</span><br><span class="line">  post_views: true</span><br><span class="line">  post_views_icon: eye</span><br></pre></td></tr></table></figure>
+
+<p>next主题中已经内置了访客统计的功能，所以这里我们只需开启就行。</p>
+<h3 id="文章目录："><a href="#文章目录：" class="headerlink" title="文章目录："></a>文章目录：</h3><p>文章目录我们用markdown写东西的时候会有一级标题，二级标题，文章目录就是由这些构成的。然后网上有的教程是让修改那个_custom文件。但是那个文件这个版本的next实际是没有的，然后有另外一种方法，就是在根目录下source\data新建一个<code>styles.styl</code>文件。然后找到next主题下的：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define custom file paths.</span></span><br><span class="line"><span class="comment"># Create your custom files in site directory `source/_data` and uncomment needed files below.</span></span><br><span class="line">custom_file_path:</span><br><span class="line">  <span class="comment">#head: source/_data/head.swig</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.swig</span></span><br><span class="line">  <span class="comment">#sidebar: source/_data/sidebar.swig</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.swig</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.swig</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.swig</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.swig</span></span><br><span class="line">  <span class="comment">#variable: source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  style: source/_data/styles.styl</span><br></pre></td></tr></table></figure>
+
+<p>将style前的注释取消掉即可。接下来就可以编辑在<code>styles.styl</code>编辑一些东西：比如网页背景以及透明度。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//文章目录默认展开</span><br><span class="line">.post-toc .nav .nav-child &#123; display: block; &#125;</span><br><span class="line">.post-toc ol &#123;  </span><br><span class="line">  font-size : 13px;     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来初始化文章目录我们来到主题配置文件位于<code>themes/next/_config.yml</code>。</p>
+<p>可以找到如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Table of Contents in the Sidebar</span></span><br><span class="line"><span class="comment"># Front-matter variable (unsupport wrap expand_all).</span></span><br><span class="line">toc:</span><br><span class="line">  enable: true</span><br><span class="line">  <span class="comment"># Automatically add list number to toc.</span></span><br><span class="line">  number: true</span><br><span class="line">  <span class="comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span></span><br><span class="line">  wrap: true</span><br><span class="line">  <span class="comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span></span><br><span class="line">  expand_all: true</span><br><span class="line">  <span class="comment"># Maximum heading depth of generated toc.</span></span><br><span class="line">  max_depth: <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p>按照上面配置即可。</p>
+<h3 id="网站背景："><a href="#网站背景：" class="headerlink" title="网站背景："></a>网站背景：</h3><p>写的我自己要吐了。网站没有背景其实真的很空洞，所以我们可以加上背景并设置透明度………肝不动了。。。。明天再说。接着来写了。关于主题配置的话网上有好多说的仍旧是那个_custom文件。但是这个next主题是没有这个文件的。所以我们仍旧在<code>style.styl</code>文件中配置。配置内容如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">body &#123;</span><br><span class="line">    background:url(http://***********/******/images/bg.jpg);//图片路径</span><br><span class="line">    background-repeat: no-repeat;//是否重复平铺</span><br><span class="line">    background-attachment:fixed;//是否随着网页上下滚动而滚动，fixed为固定</span><br><span class="line">    background-position:<span class="number">50</span>% <span class="number">50</span>%;//图片位置</span><br><span class="line">    background-size: cover;//图片展示大小</span><br><span class="line">    -webkit-background-size: cover;</span><br><span class="line">    -o-background-size: cover;</span><br><span class="line">    -moz-background-size: cover;</span><br><span class="line">    -ms-background-size: cover;</span><br><span class="line">    opacity: <span class="number">0.6</span>;//设置整个页面的透明度。该透明度如果不加在这里会出现bug，bug就是菜单栏无法点击。</span><br><span class="line">     <span class="comment">#footer &gt; div &gt; div &#123;</span></span><br><span class="line">        color:<span class="comment">#000000;//底部文字颜色</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">.header-inner &#123;</span><br><span class="line">    background: <span class="comment">#fff;//设置侧边栏透明</span></span><br><span class="line">    opacity: <span class="number">1</span>;//这里设置为<span class="number">1</span>，否则搜索栏会消失</span><br><span class="line">&#125;</span><br><span class="line">.main-inner &#123;</span><br><span class="line">  background: <span class="comment">#fff;</span></span><br><span class="line">  opacity: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>图片的<code>url</code>照着替换为你博客的网址+images即可。</p>
+<h3 id="文章分类以及标签："><a href="#文章分类以及标签：" class="headerlink" title="文章分类以及标签："></a>文章分类以及标签：</h3><p>还记得<code>_config.yml</code>中有关于<code>meau</code>的设置把。我们如果想将文章分类以及添加标签的话。首先在根目录执行 <code>hexo new page categories</code>。之后你会发现在博客根目录下source文件夹会生成一个categories文件夹。我们进入这个文件夹。用VSCODE打开里面的index.md进行编辑，在当中添加type类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: <span class="number">2020</span>-02-<span class="number">19</span> <span class="number">22</span>:<span class="number">27</span>:<span class="number">43</span></span><br><span class="line"><span class="built_in">type</span>: categories</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>标签的操作也是类似这样。输入指令 <code>hexo new page tags</code>。接下来编辑index.md这个文件即可。添加type属性即可。</p>
+<p>以上完成后我们就可以在文章中添加分类以及标签了。类似这样：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: hexo+<span class="built_in">next</span>主题配置</span><br><span class="line">date: <span class="number">2020</span>-03-04 <span class="number">23</span>:<span class="number">22</span></span><br><span class="line">categories: hexo博客主题配置</span><br><span class="line">tags: Next主题美化</span><br><span class="line">mathjax: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>这样我们就可以查看我们自己文章的分类以及标签了。</p>
+<h3 id="友情链接links"><a href="#友情链接links" class="headerlink" title="友情链接links:"></a>友情链接links:</h3><p>菜单栏中还有一项友情链接。这里可以放上常用的网站。具体设置如下:首先在根目录下\themes\next\layout新建一个<code>links.swig</code>并添加如下内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line">&#123;% block content %&#125;</span><br><span class="line">  &#123;<span class="comment">######################&#125;</span></span><br><span class="line">  &#123;<span class="comment">### LINKS BLOCK ###&#125;</span></span><br><span class="line">  &#123;<span class="comment">######################&#125;</span></span><br><span class="line"></span><br><span class="line">    &lt;div <span class="built_in">id</span>=<span class="string">&quot;links&quot;</span>&gt;</span><br><span class="line">        &lt;style&gt;</span><br><span class="line"></span><br><span class="line">            <span class="comment">#links&#123;</span></span><br><span class="line">               margin-top: 5rem;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            .links-content&#123;</span><br><span class="line">                margin-top:1rem;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            .link-navigation::after &#123;</span><br><span class="line">                content: <span class="string">&quot; &quot;</span>;</span><br><span class="line">                display: block;</span><br><span class="line">                clear: both;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            .card &#123;</span><br><span class="line">                width: 300px;</span><br><span class="line">                font-size: 1rem;</span><br><span class="line">                padding: 10px 20px;</span><br><span class="line">                border-radius: 4px;</span><br><span class="line">                transition-duration: <span class="number">0.15</span>s;</span><br><span class="line">                margin-bottom: 1rem;</span><br><span class="line">                display:flex;</span><br><span class="line">            &#125;</span><br><span class="line">            .card:nth-child(odd) &#123;</span><br><span class="line">                <span class="built_in">float</span>: left;</span><br><span class="line">            &#125;</span><br><span class="line">            .card:nth-child(even) &#123;</span><br><span class="line">                <span class="built_in">float</span>: right;</span><br><span class="line">            &#125;</span><br><span class="line">            .card:hover &#123;</span><br><span class="line">                transform: scale(<span class="number">1.1</span>);</span><br><span class="line">                box-shadow: <span class="number">0</span> 2px 6px <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.12</span>), <span class="number">0</span> <span class="number">0</span> 6px <span class="number">0</span> rgba(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0.04</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            .card a &#123;</span><br><span class="line">                border:none;</span><br><span class="line">            &#125;</span><br><span class="line">            .card .ava &#123;</span><br><span class="line">                width: 3rem!important;</span><br><span class="line">                height: 3rem!important;</span><br><span class="line">                margin:<span class="number">0</span>!important;</span><br><span class="line">                margin-right: 1em!important;</span><br><span class="line">                border-radius:4px;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            .card .card-header &#123;</span><br><span class="line">                font-style: italic;</span><br><span class="line">                overflow: hidden;</span><br><span class="line">                width: 236px;</span><br><span class="line">            &#125;</span><br><span class="line">            .card .card-header a &#123;</span><br><span class="line">                font-style: normal;</span><br><span class="line">                color: <span class="comment">#2bbc8a;</span></span><br><span class="line">                font-weight: bold;</span><br><span class="line">                text-decoration: none;</span><br><span class="line">            &#125;</span><br><span class="line">            .card .card-header a:hover &#123;</span><br><span class="line">                color: <span class="comment">#d480aa;</span></span><br><span class="line">                text-decoration: none;</span><br><span class="line">            &#125;</span><br><span class="line">            .card .card-header .info &#123;</span><br><span class="line">                font-style:normal;</span><br><span class="line">                color:<span class="comment">#a3a3a3;</span></span><br><span class="line">                font-size:14px;</span><br><span class="line">                <span class="built_in">min</span>-width: <span class="number">0</span>;</span><br><span class="line">                text-overflow: ellipsis;</span><br><span class="line">                overflow: hidden;</span><br><span class="line">                white-space: nowrap;</span><br><span class="line">            &#125;</span><br><span class="line">        &lt;/style&gt;</span><br><span class="line">        &lt;div class=&quot;links-content&quot;&gt;</span><br><span class="line">            &lt;div class=&quot;link-navigation&quot;&gt;</span><br><span class="line"></span><br><span class="line">                &#123;% <span class="keyword">for</span> link <span class="keyword">in</span> theme.mylinks %&#125;</span><br><span class="line"></span><br><span class="line">                    &lt;div class=&quot;card&quot;&gt;</span><br><span class="line">                        &lt;img class=&quot;ava&quot; src=&quot;&#123;&#123; link.avatar &#125;&#125;&quot;/&gt;</span><br><span class="line">                        &lt;div class=&quot;card-header&quot;&gt;</span><br><span class="line">                           &lt;div&gt;</span><br><span class="line">                              &lt;a href=&quot;&#123;&#123; link.site &#125;&#125;&quot; target=&quot;_blank&quot;&gt; &#123;&#123; link.nickname &#125;&#125;&lt;/a&gt;</span><br><span class="line">                              &lt;a href=&quot;&#123;&#123; link.site &#125;&#125;&quot; target=&quot;_blank&quot;&gt;&lt;span class=&quot;focus-links&quot;&gt;关注&lt;/span&gt;&lt;/a&gt;</span><br><span class="line">                           &lt;/div&gt;</span><br><span class="line">                           &lt;div class=&quot;info&quot;&gt;&#123;&#123; link.info &#125;&#125;&lt;/div&gt;</span><br><span class="line">                        &lt;/div&gt;</span><br><span class="line">                    &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">                &#123;% endfor %&#125;</span><br><span class="line"></span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">            &#123;&#123; page.content &#125;&#125;</span><br><span class="line">            &lt;/div&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">  &#123;<span class="comment">##########################&#125;</span></span><br><span class="line">  &#123;<span class="comment">### END LINKS BLOCK ###&#125;</span></span><br><span class="line">  &#123;<span class="comment">##########################&#125;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>然后修改 hexo/themems/next/layout/page.swig 文件，在</p>
+<p>复制</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">文件位置：hexo/themems/next/layout/page.swig#&#125;&#123;% elif page.type === &quot;tags&quot; and not page.title %&#125;&#123;#</span><br><span class="line">    #&#125;&#123;&#123; __(&#x27;title.tag&#x27;) + page_title_suffix &#125;&#125;&#123;#</span><br></pre></td></tr></table></figure>
+
+<p>位置添加如下代码：</p>
+<p>复制</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 友情链接--&gt;</span><br><span class="line">#&#125;&#123;% elif page.type === &#x27;links&#x27; and not page.title %&#125;&#123;#</span><br><span class="line">  #&#125;&#123;&#123; __(&#x27;title.links&#x27;) + page_title_suffix &#125;&#125;&#123;#</span><br></pre></td></tr></table></figure>
+
+<p>然后还是在这个 page.swig 文件中，引入刚才新建的 swig 页面：</p>
+<p>复制</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 友情链接--&gt;</span><br><span class="line">&#123;% elif page.type === &#x27;links&#x27; %&#125;</span><br><span class="line">    &#123;% include &#x27;links.swig&#x27; %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个代码位置可以放到下面</p>
+<p>复制</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;% elif page.type === &#x27;categories&#x27; %&#125;</span><br><span class="line">      &lt;div class=&quot;category-all-page&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;category-all-title&quot;&gt;</span><br><span class="line">            &#123;&#123; _p(&#x27;counter.categories&#x27;, site.categories.length) &#125;&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;category-all&quot;&gt;</span><br><span class="line">          &#123;&#123; list_categories() &#125;&#125;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">+      &#123;% elif page.type === &#x27;links&#x27; %&#125;</span><br><span class="line">+          &#123;% include &#x27;links.swig&#x27; %&#125;</span><br><span class="line">    &#123;% else %&#125;</span><br><span class="line">      &#123;&#123; page.content &#125;&#125;</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">  &lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后我们使用 GitBash 新建一个菜单栏：</p>
+<p>复制</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令位置：hexo根目录hexo new page &quot;links&quot;</span><br></pre></td></tr></table></figure>
+
+<p>这样在 hexo/source 目录下会生成一个 links 文件夹，打开其中的 index.md 文件，在标题头中写入 <code>type = &quot;links&quot;</code> 这个属性头，如下：</p>
+<p>复制</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 友情链接</span><br><span class="line">date: 2019-06-28 20:46:16</span><br><span class="line">+ type: &quot;links&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>如果需要关闭这个页面的评论的话，可以设置如下：</p>
+<p>复制</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 友情链接</span><br><span class="line">date: 2019-06-28 20:46:16</span><br><span class="line">type: &quot;links&quot;</span><br><span class="line">+ comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>最后，我们添加友链的话，需要在主题配置文件根目录下/themes/next/_config.xml 文件末尾添加：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mylinks:</span><br><span class="line"></span><br><span class="line">- nickname: CSDN</span><br><span class="line">  avatar:  http://wyw_hd.gitee.io/blog2/images/csdn.png</span><br><span class="line">  site: https://www.csdn.net/</span><br><span class="line">  info: 各类知识都有</span><br><span class="line"></span><br><span class="line">- nickname: 电子开源网</span><br><span class="line">  avatar: http://wyw_hd.gitee.io/blog2/images/naruto.png</span><br><span class="line">  site: http://openedv.com/</span><br><span class="line">  info: 正点原子STM32系列知识</span><br><span class="line"></span><br><span class="line">- nickname: 哔哩哔哩</span><br><span class="line">  avatar:  http://wyw_hd.gitee.io/blog2/images/jake.png</span><br><span class="line">  site: https://www.bilibili.com/</span><br><span class="line">  info: 各类教学视频都有啊，学习的小破站</span><br><span class="line"></span><br><span class="line">- nickname: github</span><br><span class="line">  avatar:  http://wyw_hd.gitee.io/blog2/images/hah.png</span><br><span class="line">  site: https://github.com/</span><br><span class="line">  info: 上面各种开源代码。值得学习</span><br></pre></td></tr></table></figure>
+
+<p>然后我们还需要在该配置文件下添加links即可;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Menu Settings</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Usage: `Key: /link/ || icon`</span></span><br><span class="line"><span class="comment"># Key is the name of menu item. If the translation for this item is available, the translated text will be loaded, otherwise the Key name will be used. Key is case-senstive.</span></span><br><span class="line"><span class="comment"># Value before `||` delimiter is the target link, value after `||` delimiter is the name of Font Awesome icon.</span></span><br><span class="line"><span class="comment"># When running the site in a subdirectory (e.g. yoursite.com/blog), remove the leading slash from link value (/archives -&gt; archives).</span></span><br><span class="line"><span class="comment"># External url should start with http:// or https://</span></span><br><span class="line">menu:</span><br><span class="line">  home: / || home</span><br><span class="line">  about: /about/ || user</span><br><span class="line">  tags: /tags/ || tags</span><br><span class="line">  categories: /categories/ || th</span><br><span class="line">  archives: /archives/ || archive</span><br><span class="line">  <span class="comment"># schedule: /schedule/ || calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || heartbeat</span></span><br><span class="line">添加：  links: /links/ || link</span><br><span class="line"></span><br><span class="line"><span class="comment"># Enable / Disable menu icons / item badges.</span></span><br><span class="line">menu_settings:</span><br><span class="line">  icons: true</span><br><span class="line">  badges: true</span><br></pre></td></tr></table></figure>
+
+<h3 id="阅读全文按钮开启："><a href="#阅读全文按钮开启：" class="headerlink" title="阅读全文按钮开启："></a>阅读全文按钮开启：</h3><p>我们首先找到在next主题下的<code>_config.yml</code>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto_excerpt:</span><br><span class="line">      enable: false</span><br><span class="line">      length: <span class="number">150</span></span><br></pre></td></tr></table></figure>
+
+<p>然后把false改为true即可。length是显示摘要的长度。然后在文章添加这个标签即可。</p>
+<p>感觉写的差不多了。坑是有点多。踩的多就明白了。希望疫情早日结束，能够开学早点见到她。嘿嘿。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/project/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag"># hexo使用</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/project/2021/04/26/Lemon-Full-Covered/" rel="prev" title="Lemon (Full Covered)">
+      <i class="fa fa-chevron-left"></i> Lemon (Full Covered)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/project/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/" rel="next" title="使用hexo+github搭建免费个人博客详细教程">
+      使用hexo+github搭建免费个人博客详细教程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo-next%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">hexo+next个性化配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE%E8%B8%A9%E7%9A%84%E5%9D%91"><span class="nav-number">1.1.</span> <span class="nav-text">Hexo+next主题配置踩的坑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85next%E4%B8%BB%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">下载安装next主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next%E4%B8%BB%E9%A2%98%E4%B8%8B-config-yml%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">Next主题下_config.yml的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SITE%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.3.1.</span> <span class="nav-text">SITE设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#URL%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.3.2.</span> <span class="nav-text">URL设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BF%BB%E9%A1%B5%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.3.3.</span> <span class="nav-text">翻页设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deployment%E8%AE%BE%E7%BD%AE"><span class="nav-number">1.3.4.</span> <span class="nav-text">Deployment设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next%E4%B8%BB%E9%A2%98%E4%B8%8B%E7%9A%84-config-yml%E7%9A%84%E9%85%8D%E7%BD%AE%E3%80%82"><span class="nav-number">1.4.</span> <span class="nav-text">Next主题下的_config.yml的配置。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%AB%99logo%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="nav-number">1.4.1.</span> <span class="nav-text">网站logo设置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B5%E8%84%9A%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="nav-number">1.4.2.</span> <span class="nav-text">页脚设置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Next%E4%B8%BB%E9%A2%98%E9%A3%8E%E6%A0%BC%EF%BC%9A"><span class="nav-number">1.4.3.</span> <span class="nav-text">Next主题风格：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8F%9C%E5%8D%95%E6%A0%8F%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="nav-number">1.4.4.</span> <span class="nav-text">菜单栏设置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BE%A7%E8%BE%B9%E6%A0%8F%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="nav-number">1.4.5.</span> <span class="nav-text">侧边栏设置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BE%E4%BA%A4%E9%93%BE%E6%8E%A5%EF%BC%9A"><span class="nav-number">1.4.6.</span> <span class="nav-text">社交链接：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%93%E8%B5%8F%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="nav-number">1.4.7.</span> <span class="nav-text">打赏设置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E8%AF%84%E8%AE%BA%E8%AE%BE%E7%BD%AE%EF%BC%9A"><span class="nav-number">1.4.8.</span> <span class="nav-text">文章底部评论设置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Github%E8%A7%92%E6%A0%87"><span class="nav-number">1.4.9.</span> <span class="nav-text">Github角标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%94%E5%9B%9E%E9%A1%B6%E9%83%A8%E6%8C%89%E9%92%AE"><span class="nav-number">1.4.10.</span> <span class="nav-text">返回顶部按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%90%9C%E7%B4%A2%EF%BC%9A"><span class="nav-number">1.4.11.</span> <span class="nav-text">文章搜索：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF"><span class="nav-number">1.5.</span> <span class="nav-text">动态背景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Canvas-nest"><span class="nav-number">1.5.1.</span> <span class="nav-text">Canvas-nest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.5.2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-number">1.5.3.</span> <span class="nav-text">修改配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="nav-number">1.6.</span> <span class="nav-text">网站运行时间</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E5%AE%A2%E7%BB%9F%E8%AE%A1-%EF%BC%9A"><span class="nav-number">1.6.1.</span> <span class="nav-text">访客统计 ：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95%EF%BC%9A"><span class="nav-number">1.6.2.</span> <span class="nav-text">文章目录：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%AB%99%E8%83%8C%E6%99%AF%EF%BC%9A"><span class="nav-number">1.6.3.</span> <span class="nav-text">网站背景：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB%E4%BB%A5%E5%8F%8A%E6%A0%87%E7%AD%BE%EF%BC%9A"><span class="nav-number">1.6.4.</span> <span class="nav-text">文章分类以及标签：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8B%E6%83%85%E9%93%BE%E6%8E%A5links"><span class="nav-number">1.6.5.</span> <span class="nav-text">友情链接links:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%98%85%E8%AF%BB%E5%85%A8%E6%96%87%E6%8C%89%E9%92%AE%E5%BC%80%E5%90%AF%EF%BC%9A"><span class="nav-number">1.6.6.</span> <span class="nav-text">阅读全文按钮开启：</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="功夫大侠"
+      src="/project/images/1.gif">
+  <p class="site-author-name" itemprop="name">功夫大侠</p>
+  <div class="site-description" itemprop="description">欢迎常来做做哦：）</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/project/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/project/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fast2021" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fast2021" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://51hsk2020.qicp.io/" title="http:&#x2F;&#x2F;51hsk2020.qicp.io&#x2F;" rel="noopener" target="_blank">花生壳Nas</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">功夫大侠</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/project/lib/anime.min.js"></script>
+  <script src="/project/lib/velocity/velocity.min.js"></script>
+  <script src="/project/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/project/js/utils.js"></script>
+
+<script src="/project/js/motion.js"></script>
+
+
+<script src="/project/js/schemes/pisces.js"></script>
+
+
+<script src="/project/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '3dvNw68uBeiOPGMRPgdSxIzP-gzGzoHsz',
+      appKey     : 'GQeJBMOKkCPNdKAzcxNDKrTl',
+      placeholder: "留下你的评论吧",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
