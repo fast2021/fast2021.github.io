@@ -1,15 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
-  
-  
-  <title>使用hexo+github搭建免费个人博客详细教程 | 阿宝的小屋</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/fast2021.github.io/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/fast2021.github.io/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/fast2021.github.io/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/fast2021.github.io/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/fast2021.github.io/css/main.css">
+
+
+<link rel="stylesheet" href="/fast2021.github.io/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"fast2021.github.io","root":"/fast2021.github.io/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
   <meta name="description" content="前言使用github pages服务搭建博客的好处有：  全是静态文件，访问速度快； 免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的； 数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行； 博客内容可以轻松打包、转移、发布到其它平台； 等等；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用hexo+github搭建免费个人博客详细教程">
-<meta property="og:url" content="https://fast2021.github.io/project/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:url" content="https://fast2021.github.io/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="阿宝的小屋">
 <meta property="og:description" content="前言使用github pages服务搭建博客的好处有：  全是静态文件，访问速度快； 免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的； 数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行； 博客内容可以轻松打包、转移、发布到其它平台； 等等；">
 <meta property="og:locale" content="zh_CN">
@@ -31,83 +45,188 @@
 <meta property="article:tag" content="hexo使用">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://image.liuxianan.com/201608/20160823_191336_238_8683.png">
-  
-    <link rel="alternate" href="/project/atom.xml" title="阿宝的小屋" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/project/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
 
-  
-  
-<link rel="stylesheet" href="/project/css/style.css">
+<link rel="canonical" href="https://fast2021.github.io/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/">
 
-  
-    
-<link rel="stylesheet" href="/project/fancybox/jquery.fancybox.min.css">
 
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/project/" id="logo">阿宝的小屋</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/project/">Home</a>
-        
-          <a class="main-nav-link" href="/project/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/project/atom.xml" title="RSS 订阅"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://fast2021.github.io/project"></form>
-      </div>
+  <title>使用hexo+github搭建免费个人博客详细教程 | 阿宝的小屋</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
   </div>
-</header>
 
-      <div class="outer">
-        <section id="main"><article id="post-搭建blog教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/project/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2021-04-26T14:09:05.000Z" itemprop="datePublished">2021-04-26</time>
-</a>
-    
+  <div class="site-meta">
+
+    <a href="/fast2021.github.io/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿宝的小屋</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
   </div>
-  <div class="article-inner">
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/fast2021.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/fast2021.github.io/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/fast2021.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
     
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
     
-      <header class="article-header">
-        
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      使用hexo+github搭建免费个人博客详细教程
-    </h1>
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://fast2021.github.io/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/fast2021.github.io/images/1.gif">
+      <meta itemprop="name" content="功夫大侠">
+      <meta itemprop="description" content="欢迎常来做做哦：）">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿宝的小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用hexo+github搭建免费个人博客详细教程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-26 22:09:05 / 修改时间：23:26:51" itemprop="dateCreated datePublished" datetime="2021-04-26T22:09:05+08:00">2021-04-26</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/fast2021.github.io/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/fast2021.github.io/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
+        </div>
       </header>
+
     
-    <div class="e-content article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
         <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>使用github pages服务搭建博客的好处有：</p>
 <ol>
@@ -128,9 +247,9 @@
 <p>本文所使用的环境：</p>
 <ul>
 <li>Windows8.1</li>
-<li><a href="mailto:&#110;&#111;&#x64;&#x65;&#46;&#106;&#115;&#x40;&#53;&#x2e;&#53;&#x2e;&#x30;">&#110;&#111;&#x64;&#x65;&#46;&#106;&#115;&#x40;&#53;&#x2e;&#53;&#x2e;&#x30;</a></li>
-<li><a href="mailto:&#103;&#105;&#x74;&#x40;&#49;&#46;&#x39;&#x2e;&#50;">&#103;&#105;&#x74;&#x40;&#49;&#46;&#x39;&#x2e;&#50;</a></li>
-<li><a href="mailto:&#104;&#x65;&#120;&#111;&#x40;&#51;&#46;&#50;&#46;&#x32;">&#104;&#x65;&#120;&#111;&#x40;&#51;&#46;&#50;&#46;&#x32;</a></li>
+<li><a href="mailto:&#x6e;&#x6f;&#x64;&#101;&#x2e;&#x6a;&#x73;&#64;&#53;&#46;&#53;&#46;&#x30;">&#x6e;&#x6f;&#x64;&#101;&#x2e;&#x6a;&#x73;&#64;&#53;&#46;&#53;&#46;&#x30;</a></li>
+<li><a href="mailto:&#x67;&#105;&#116;&#64;&#x31;&#x2e;&#57;&#46;&#x32;">&#x67;&#105;&#116;&#64;&#x31;&#x2e;&#57;&#46;&#x32;</a></li>
+<li><a href="mailto:&#104;&#x65;&#120;&#111;&#x40;&#51;&#46;&#x32;&#46;&#50;">&#104;&#x65;&#120;&#111;&#x40;&#51;&#46;&#x32;&#46;&#50;</a></li>
 </ul>
 <h1 id="搭建github博客"><a href="#搭建github博客" class="headerlink" title="搭建github博客"></a>搭建github博客</h1><h2 id="2-1-创建仓库"><a href="#2-1-创建仓库" class="headerlink" title="2.1. 创建仓库"></a>2.1. 创建仓库</h2><p>新建一个名为<code>你的用户名.github.io</code>的仓库，比如说，如果你的github用户名是test，那么你就新建<code>test.github.io</code>的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是 <a target="_blank" rel="noopener" href="http://test.github.io/">http://test.github.io</a> 了，是不是很方便？</p>
 <p>由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。</p>
@@ -268,150 +387,262 @@
 <h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a target="_blank" rel="noopener" href="http://www.cnblogs.com/zhcncn/p/4097881.html">http://www.cnblogs.com/zhcncn/p/4097881.html</a></p>
 <p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/05289a4bc8b2">http://www.jianshu.com/p/05289a4bc8b2</a></p>
 
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="https://fast2021.github.io/project/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/" data-id="cknyu891x00067cuf1kaagtc6" data-title="使用hexo+github搭建免费个人博客详细教程" class="article-share-link">分享</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/project/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a></li></ul>
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/fast2021.github.io/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag"># hexo使用</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/fast2021.github.io/2021/04/26/next%E4%B8%AA%E6%80%A7%E5%8C%96%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" rel="prev" title="hexo+next个性化配置">
+      <i class="fa fa-chevron-left"></i> hexo+next个性化配置
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/fast2021.github.io/2021/04/26/tags%E4%BD%BF%E7%94%A8/" rel="next" title="hexo标签使用详细教程">
+      hexo标签使用详细教程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">1.1. 准备工作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%90%AD%E5%BB%BAgithub%E5%8D%9A%E5%AE%A2"><span class="nav-number">2.</span> <span class="nav-text">搭建github博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%88%9B%E5%BB%BA%E4%BB%93%E5%BA%93"><span class="nav-number">2.1.</span> <span class="nav-text">2.1. 创建仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D"><span class="nav-number">2.2.</span> <span class="nav-text">2.2. 绑定域名</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%85%8D%E7%BD%AESSH-key"><span class="nav-number">3.</span> <span class="nav-text">配置SSH key</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E6%B5%8B%E8%AF%95%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F"><span class="nav-number">3.1.</span> <span class="nav-text">3.1. 测试是否成功</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8hexo%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="nav-number">4.</span> <span class="nav-text">使用hexo写博客</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-hexo%E7%AE%80%E4%BB%8B"><span class="nav-number">4.1.</span> <span class="nav-text">4.1. hexo简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-%E5%8E%9F%E7%90%86"><span class="nav-number">4.2.</span> <span class="nav-text">4.2. 原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">4.3.</span> <span class="nav-text">4.3. 注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-%E5%AE%89%E8%A3%85"><span class="nav-number">4.4.</span> <span class="nav-text">4.4. 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">4.5.</span> <span class="nav-text">4.5. 初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-%E4%BF%AE%E6%94%B9%E4%B8%BB%E9%A2%98"><span class="nav-number">4.6.</span> <span class="nav-text">4.6. 修改主题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7-%E4%B8%8A%E4%BC%A0%E4%B9%8B%E5%89%8D"><span class="nav-number">4.7.</span> <span class="nav-text">4.7. 上传之前</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-8-%E4%B8%8A%E4%BC%A0%E5%88%B0github"><span class="nav-number">4.8.</span> <span class="nav-text">4.8. 上传到github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-9-%E4%BF%9D%E7%95%99CNAME%E3%80%81README-md%E7%AD%89%E6%96%87%E4%BB%B6"><span class="nav-number">4.9.</span> <span class="nav-text">4.9. 保留CNAME、README.md等文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-10-%E5%B8%B8%E7%94%A8hexo%E5%91%BD%E4%BB%A4"><span class="nav-number">4.10.</span> <span class="nav-text">4.10. 常用hexo命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-11-config-yml"><span class="nav-number">4.11.</span> <span class="nav-text">4.11. _config.yml</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-12-%E5%86%99%E5%8D%9A%E5%AE%A2"><span class="nav-number">4.12.</span> <span class="nav-text">4.12. 写博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-12-1-%E5%86%99%E5%8D%9A%E5%AE%A2%E5%B7%A5%E5%85%B7"><span class="nav-number">4.12.1.</span> <span class="nav-text">4.12.1. 写博客工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-12-2-%E5%A6%82%E4%BD%95%E8%AE%A9%E5%8D%9A%E6%96%87%E5%88%97%E8%A1%A8%E4%B8%8D%E6%98%BE%E7%A4%BA%E5%85%A8%E9%83%A8%E5%86%85%E5%AE%B9"><span class="nav-number">4.12.2.</span> <span class="nav-text">4.12.2. 如何让博文列表不显示全部内容</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E6%95%88%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">最终效果</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">6.</span> <span class="nav-text">参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="功夫大侠"
+      src="/fast2021.github.io/images/1.gif">
+  <p class="site-author-name" itemprop="name">功夫大侠</p>
+  <div class="site-description" itemprop="description">欢迎常来做做哦：）</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/fast2021.github.io/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/fast2021.github.io/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fast2021" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fast2021" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://51hsk2020.qicp.io/" title="http:&#x2F;&#x2F;51hsk2020.qicp.io&#x2F;" rel="noopener" target="_blank">花生壳Nas</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">功夫大侠</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/project/2021/04/26/tags%E4%BD%BF%E7%94%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          hexo标签使用详细教程
-        
-      </div>
-    </a>
-  
-  
-    <a href="/project/2021/04/26/next%E4%B8%AA%E6%80%A7%E5%8C%96%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">hexo+next个性化配置</div>
-    </a>
-  
-</nav>
 
   
-</article>
+  <script src="/fast2021.github.io/lib/anime.min.js"></script>
+  <script src="/fast2021.github.io/lib/velocity/velocity.min.js"></script>
+  <script src="/fast2021.github.io/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/fast2021.github.io/js/utils.js"></script>
+
+<script src="/fast2021.github.io/js/motion.js"></script>
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/project/tags/MV/" rel="tag">MV</a></li><li class="tag-list-item"><a class="tag-list-link" href="/project/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag">hexo使用</a></li><li class="tag-list-item"><a class="tag-list-link" href="/project/tags/music/" rel="tag">music</a></li></ul>
-    </div>
-  </div>
+<script src="/fast2021.github.io/js/schemes/pisces.js"></script>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/project/tags/MV/" style="font-size: 10px;">MV</a> <a href="/project/tags/hexo%E4%BD%BF%E7%94%A8/" style="font-size: 20px;">hexo使用</a> <a href="/project/tags/music/" style="font-size: 20px;">music</a>
-    </div>
-  </div>
+<script src="/fast2021.github.io/js/next-boot.js"></script>
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/project/archives/2021/04/">四月 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/project/2021/04/26/tags%E4%BD%BF%E7%94%A8/">hexo标签使用详细教程</a>
-          </li>
-        
-          <li>
-            <a href="/project/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/">使用hexo+github搭建免费个人博客详细教程</a>
-          </li>
-        
-          <li>
-            <a href="/project/2021/04/26/next%E4%B8%AA%E6%80%A7%E5%8C%96%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/">hexo+next个性化配置</a>
-          </li>
-        
-          <li>
-            <a href="/project/2021/04/26/Lemon-Full-Covered/">Lemon (Full Covered)</a>
-          </li>
-        
-          <li>
-            <a href="/project/2021/04/26/%E7%81%AB%E5%BD%B1%E5%BF%8D%E8%80%85-%E9%9D%92%E9%B8%9F/">火影忍者-青鸟</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 功夫大侠<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/project/" class="mobile-nav-link">Home</a>
-  
-    <a href="/project/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/project/js/jquery-3.4.1.min.js"></script>
 
 
 
   
-<script src="/project/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/project/js/script.js"></script>
 
 
 
 
 
-  </div>
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '3dvNw68uBeiOPGMRPgdSxIzP-gzGzoHsz',
+      appKey     : 'GQeJBMOKkCPNdKAzcxNDKrTl',
+      placeholder: "留下你的评论吧",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
 </body>
 </html>
