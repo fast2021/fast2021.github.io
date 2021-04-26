@@ -5,25 +5,25 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.4.0">
-  <link rel="apple-touch-icon" sizes="180x180" href="/fast2021.github.io/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/fast2021.github.io/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/fast2021.github.io/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/fast2021.github.io/images/logo.svg" color="#222">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-<link rel="stylesheet" href="/fast2021.github.io/css/main.css">
+<link rel="stylesheet" href="/css/main.css">
 
 
-<link rel="stylesheet" href="/fast2021.github.io/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"fast2021.github.io","root":"/fast2021.github.io/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="前言使用github pages服务搭建博客的好处有：  全是静态文件，访问速度快； 免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的； 数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行； 博客内容可以轻松打包、转移、发布到其它平台； 等等；">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用hexo+github搭建免费个人博客详细教程">
-<meta property="og:url" content="https://fast2021.github.io/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:url" content="http://example.com/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="阿宝的小屋">
 <meta property="og:description" content="前言使用github pages服务搭建博客的好处有：  全是静态文件，访问速度快； 免费方便，不用花一分钱就可以搭建一个自由的个人博客，不需要服务器不需要后台； 可以随意绑定自己的域名，不仔细看的话根本看不出来你的网站是基于github的； 数据绝对安全，基于github的版本管理，想恢复到哪个历史版本都行； 博客内容可以轻松打包、转移、发布到其它平台； 等等；">
 <meta property="og:locale" content="zh_CN">
@@ -46,7 +46,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://image.liuxianan.com/201608/20160823_191336_238_8683.png">
 
-<link rel="canonical" href="https://fast2021.github.io/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/">
+<link rel="canonical" href="http://example.com/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/">
 
 
 <script id="page-configurations">
@@ -108,7 +108,7 @@
 
   <div class="site-meta">
 
-    <a href="/fast2021.github.io/" class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <h1 class="site-title">阿宝的小屋</h1>
       <span class="logo-line-after"><i></i></span>
@@ -128,17 +128,17 @@
   <ul id="menu" class="main-menu menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/fast2021.github.io/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
 
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/fast2021.github.io/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/fast2021.github.io/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
   </ul>
@@ -169,10 +169,10 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://fast2021.github.io/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/fast2021.github.io/images/1.gif">
+      <meta itemprop="image" content="/images/1.gif">
       <meta itemprop="name" content="功夫大侠">
       <meta itemprop="description" content="欢迎常来做做哦：）">
     </span>
@@ -212,8 +212,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/fast2021.github.io/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/fast2021.github.io/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/04/26/%E6%90%AD%E5%BB%BAblog%E6%95%99%E7%A8%8B/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -247,9 +247,9 @@
 <p>本文所使用的环境：</p>
 <ul>
 <li>Windows8.1</li>
-<li><a href="mailto:&#x6e;&#x6f;&#x64;&#101;&#x2e;&#x6a;&#x73;&#64;&#53;&#46;&#53;&#46;&#x30;">&#x6e;&#x6f;&#x64;&#101;&#x2e;&#x6a;&#x73;&#64;&#53;&#46;&#53;&#46;&#x30;</a></li>
-<li><a href="mailto:&#x67;&#105;&#116;&#64;&#x31;&#x2e;&#57;&#46;&#x32;">&#x67;&#105;&#116;&#64;&#x31;&#x2e;&#57;&#46;&#x32;</a></li>
-<li><a href="mailto:&#104;&#x65;&#120;&#111;&#x40;&#51;&#46;&#x32;&#46;&#50;">&#104;&#x65;&#120;&#111;&#x40;&#51;&#46;&#x32;&#46;&#50;</a></li>
+<li><a href="mailto:&#x6e;&#111;&#x64;&#101;&#x2e;&#106;&#x73;&#x40;&#53;&#46;&#x35;&#46;&#48;">&#x6e;&#111;&#x64;&#101;&#x2e;&#106;&#x73;&#x40;&#53;&#46;&#x35;&#46;&#48;</a></li>
+<li><a href="mailto:&#103;&#x69;&#116;&#64;&#49;&#x2e;&#x39;&#x2e;&#50;">&#103;&#x69;&#116;&#64;&#49;&#x2e;&#x39;&#x2e;&#50;</a></li>
+<li><a href="mailto:&#104;&#101;&#120;&#111;&#64;&#x33;&#x2e;&#50;&#x2e;&#50;">&#104;&#101;&#120;&#111;&#64;&#x33;&#x2e;&#50;&#x2e;&#50;</a></li>
 </ul>
 <h1 id="搭建github博客"><a href="#搭建github博客" class="headerlink" title="搭建github博客"></a>搭建github博客</h1><h2 id="2-1-创建仓库"><a href="#2-1-创建仓库" class="headerlink" title="2.1. 创建仓库"></a>2.1. 创建仓库</h2><p>新建一个名为<code>你的用户名.github.io</code>的仓库，比如说，如果你的github用户名是test，那么你就新建<code>test.github.io</code>的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是 <a target="_blank" rel="noopener" href="http://test.github.io/">http://test.github.io</a> 了，是不是很方便？</p>
 <p>由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。</p>
@@ -395,7 +395,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/fast2021.github.io/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag"># hexo使用</a>
+              <a href="/tags/hexo%E4%BD%BF%E7%94%A8/" rel="tag"># hexo使用</a>
           </div>
 
         
@@ -404,11 +404,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/fast2021.github.io/2021/04/26/next%E4%B8%AA%E6%80%A7%E5%8C%96%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" rel="prev" title="hexo+next个性化配置">
+    <a href="/2021/04/26/next%E4%B8%AA%E6%80%A7%E5%8C%96%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/" rel="prev" title="hexo+next个性化配置">
       <i class="fa fa-chevron-left"></i> hexo+next个性化配置
     </a></div>
       <div class="post-nav-item">
-    <a href="/fast2021.github.io/2021/04/26/tags%E4%BD%BF%E7%94%A8/" rel="next" title="hexo标签使用详细教程">
+    <a href="/2021/04/26/tags%E4%BD%BF%E7%94%A8/" rel="next" title="hexo标签使用详细教程">
       hexo标签使用详细教程 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -477,21 +477,21 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="功夫大侠"
-      src="/fast2021.github.io/images/1.gif">
+      src="/images/1.gif">
   <p class="site-author-name" itemprop="name">功夫大侠</p>
   <div class="site-description" itemprop="description">欢迎常来做做哦：）</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/fast2021.github.io/archives/">
+          <a href="/archives/">
         
           <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-            <a href="/fast2021.github.io/tags/">
+            <a href="/tags/">
           
         <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
@@ -578,19 +578,19 @@
   </div>
 
   
-  <script src="/fast2021.github.io/lib/anime.min.js"></script>
-  <script src="/fast2021.github.io/lib/velocity/velocity.min.js"></script>
-  <script src="/fast2021.github.io/lib/velocity/velocity.ui.min.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-<script src="/fast2021.github.io/js/utils.js"></script>
+<script src="/js/utils.js"></script>
 
-<script src="/fast2021.github.io/js/motion.js"></script>
-
-
-<script src="/fast2021.github.io/js/schemes/pisces.js"></script>
+<script src="/js/motion.js"></script>
 
 
-<script src="/fast2021.github.io/js/next-boot.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
 
 
 
