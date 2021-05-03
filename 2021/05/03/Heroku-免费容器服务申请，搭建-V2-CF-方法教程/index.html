@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Heroku+Cloudflare+V2搭建详细图文教程 最近大家都开始在讨论Heroku进行白嫖，利用Heroku搭建V2速度杠杠的什么的。其实本来Heroku挺好的，如果滥用的话容易被封号。虾皮路刚好在逛LOC的时候发现个不错的文章，就是介绍Heroku+Cloudflare+V2搭建图文教程，转载记录一下。 本文目录一、Heroku是什么二、配置Heroku三、配置CloudFlare反">
+  <meta name="description" content="Heroku+Cloudflare+V2搭建详细图文教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Heroku 免费容器服务申请，搭建 V2+CF 方法教程">
 <meta property="og:url" content="http://example.com/2021/05/03/Heroku-%E5%85%8D%E8%B4%B9%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%E7%94%B3%E8%AF%B7%EF%BC%8C%E6%90%AD%E5%BB%BA-V2-CF-%E6%96%B9%E6%B3%95%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="阿宝的小屋">
-<meta property="og:description" content="Heroku+Cloudflare+V2搭建详细图文教程 最近大家都开始在讨论Heroku进行白嫖，利用Heroku搭建V2速度杠杠的什么的。其实本来Heroku挺好的，如果滥用的话容易被封号。虾皮路刚好在逛LOC的时候发现个不错的文章，就是介绍Heroku+Cloudflare+V2搭建图文教程，转载记录一下。 本文目录一、Heroku是什么二、配置Heroku三、配置CloudFlare反">
+<meta property="og:description" content="Heroku+Cloudflare+V2搭建详细图文教程">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033236280.jpg">
 <meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033243871.png!sh6">
@@ -39,7 +39,7 @@
 <meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033330217.png!sh6">
 <meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033408244.png!sh6">
 <meta property="article:published_time" content="2021-05-03T15:29:53.000Z">
-<meta property="article:modified_time" content="2021-05-03T15:43:13.846Z">
+<meta property="article:modified_time" content="2021-05-03T15:45:21.728Z">
 <meta property="article:author" content="功夫大侠">
 <meta property="article:tag" content="Heroku">
 <meta property="article:tag" content="v2ray">
@@ -194,7 +194,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-05-03 23:29:53 / 修改时间：23:43:13" itemprop="dateCreated datePublished" datetime="2021-05-03T23:29:53+08:00">2021-05-03</time>
+              <time title="创建时间：2021-05-03 23:29:53 / 修改时间：23:45:21" itemprop="dateCreated datePublished" datetime="2021-05-03T23:29:53+08:00">2021-05-03</time>
             </span>
 
           
@@ -232,6 +232,7 @@
         <meta name="referrer" content="no-referrer"/>
 
 <h1 id="Heroku-Cloudflare-V2搭建详细图文教程"><a href="#Heroku-Cloudflare-V2搭建详细图文教程" class="headerlink" title="Heroku+Cloudflare+V2搭建详细图文教程"></a><a target="_blank" rel="noopener" href="https://www.shopee6.com/web/web-tutorial/heroku-cloudflare-v2.html">Heroku+Cloudflare+V2搭建详细图文教程</a></h1><p><a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=d869477b54aHR0cHM6Ly9zaG9wZWU2LmZseHp6LmNvbS8yMDIwLzA3LzIwMjAwNzA4MDMzMjM2MjgwLmpwZw=="><img src="https://shopee6.flxzz.com/2020/07/20200708033236280.jpg" alt="Heroku+Cloudflare+V2搭建详细图文教程插图"></a></p>
+<span id="more"></span>
 <p>最近大家都开始在讨论Heroku进行白嫖，利用Heroku搭建V2速度杠杠的什么的。其实本来Heroku挺好的，如果滥用的话容易被封号。虾皮路刚好在逛LOC的时候发现个不错的文章，就是介绍Heroku+<a target="_blank" rel="noopener" href="https://www.shopee6.com/tag/157">Cloudflare</a>+V2搭建图文教程，转载记录一下。</p>
 <p>本文目录<a target="_blank" rel="noopener" href="https://www.shopee6.com/web/web-tutorial/heroku-cloudflare-v2.html#ftoc-heading-1">一、Heroku是什么</a><a target="_blank" rel="noopener" href="https://www.shopee6.com/web/web-tutorial/heroku-cloudflare-v2.html#ftoc-heading-2">二、配置Heroku</a><a target="_blank" rel="noopener" href="https://www.shopee6.com/web/web-tutorial/heroku-cloudflare-v2.html#ftoc-heading-3">三、配置CloudFlare反向代理</a><a target="_blank" rel="noopener" href="https://www.shopee6.com/web/web-tutorial/heroku-cloudflare-v2.html#ftoc-heading-4">四、配置V2客户端</a></p>
 <h2 id="一、Heroku是什么"><a href="#一、Heroku是什么" class="headerlink" title="一、Heroku是什么"></a>一、Heroku是什么</h2><p>Heroku是一个支持多种编程语言的云平台即服务。在2010年被Salesforce.com收购。Heroku作为最开始的云平台之一，从2007年6月起开发，当时它仅支持Ruby，但后来增加了对Java、Node.js、Scala、Clojure、Python以及（未记录在正式文件上）PHP和Perl的支持。基础操作系统是Debian，在最新的堆栈则是基于Debian的Ubuntu。</p>
