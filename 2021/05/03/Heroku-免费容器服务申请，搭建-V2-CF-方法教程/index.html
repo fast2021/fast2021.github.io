@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Heroku+Cloudflare+V2搭建详细图文教程 最近大家都开始在讨论Heroku进行白嫖，利用Heroku搭建V2速度杠杠的什么的。其实本来Heroku挺好的，如果滥用的话容易被封号。虾皮路刚好在逛LOC的时候发现个不错的文章，就是介绍Heroku+Cloudflare+V2搭建图文教程，转载记录一下。 本文目录一、Heroku是什么二、配置Heroku三、配置CloudFlare反">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Heroku 免费容器服务申请，搭建 V2+CF 方法教程">
+<meta property="og:url" content="http://example.com/2021/05/03/Heroku-%E5%85%8D%E8%B4%B9%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%E7%94%B3%E8%AF%B7%EF%BC%8C%E6%90%AD%E5%BB%BA-V2-CF-%E6%96%B9%E6%B3%95%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="阿宝的小屋">
+<meta property="og:description" content="Heroku+Cloudflare+V2搭建详细图文教程 最近大家都开始在讨论Heroku进行白嫖，利用Heroku搭建V2速度杠杠的什么的。其实本来Heroku挺好的，如果滥用的话容易被封号。虾皮路刚好在逛LOC的时候发现个不错的文章，就是介绍Heroku+Cloudflare+V2搭建图文教程，转载记录一下。 本文目录一、Heroku是什么二、配置Heroku三、配置CloudFlare反">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033236280.jpg">
+<meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033243871.png!sh6">
+<meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033247443.png!sh6">
+<meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033253870.png!sh6">
+<meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033258344.png!sh6">
+<meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033303135.png!sh6">
+<meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033310504.png!sh6">
+<meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033316902.png!sh6">
+<meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033321890.png!sh6">
+<meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033330217.png!sh6">
+<meta property="og:image" content="https://shopee6.flxzz.com/2020/07/20200708033408244.png!sh6">
+<meta property="article:published_time" content="2021-05-03T15:29:53.000Z">
+<meta property="article:modified_time" content="2021-05-03T15:43:13.846Z">
+<meta property="article:author" content="功夫大侠">
+<meta property="article:tag" content="Heroku">
+<meta property="article:tag" content="v2ray">
+<meta property="article:tag" content="梯子">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://shopee6.flxzz.com/2020/07/20200708033236280.jpg">
+
+<link rel="canonical" href="http://example.com/2021/05/03/Heroku-%E5%85%8D%E8%B4%B9%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%E7%94%B3%E8%AF%B7%EF%BC%8C%E6%90%AD%E5%BB%BA-V2-CF-%E6%96%B9%E6%B3%95%E6%95%99%E7%A8%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Heroku 免费容器服务申请，搭建 V2+CF 方法教程 | 阿宝的小屋</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿宝的小屋</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/03/Heroku-%E5%85%8D%E8%B4%B9%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%E7%94%B3%E8%AF%B7%EF%BC%8C%E6%90%AD%E5%BB%BA-V2-CF-%E6%96%B9%E6%B3%95%E6%95%99%E7%A8%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/2.jpg">
+      <meta itemprop="name" content="功夫大侠">
+      <meta itemprop="description" content="欢迎常来做做哦：）">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿宝的小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Heroku 免费容器服务申请，搭建 V2+CF 方法教程
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-05-03 23:29:53 / 修改时间：23:43:13" itemprop="dateCreated datePublished" datetime="2021-05-03T23:29:53+08:00">2021-05-03</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/05/03/Heroku-%E5%85%8D%E8%B4%B9%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%E7%94%B3%E8%AF%B7%EF%BC%8C%E6%90%AD%E5%BB%BA-V2-CF-%E6%96%B9%E6%B3%95%E6%95%99%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/05/03/Heroku-%E5%85%8D%E8%B4%B9%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%E7%94%B3%E8%AF%B7%EF%BC%8C%E6%90%AD%E5%BB%BA-V2-CF-%E6%96%B9%E6%B3%95%E6%95%99%E7%A8%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <meta name="referrer" content="no-referrer"/>
+
+<h1 id="Heroku-Cloudflare-V2搭建详细图文教程"><a href="#Heroku-Cloudflare-V2搭建详细图文教程" class="headerlink" title="Heroku+Cloudflare+V2搭建详细图文教程"></a><a target="_blank" rel="noopener" href="https://www.shopee6.com/web/web-tutorial/heroku-cloudflare-v2.html">Heroku+Cloudflare+V2搭建详细图文教程</a></h1><p><a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=d869477b54aHR0cHM6Ly9zaG9wZWU2LmZseHp6LmNvbS8yMDIwLzA3LzIwMjAwNzA4MDMzMjM2MjgwLmpwZw=="><img src="https://shopee6.flxzz.com/2020/07/20200708033236280.jpg" alt="Heroku+Cloudflare+V2搭建详细图文教程插图"></a></p>
+<p>最近大家都开始在讨论Heroku进行白嫖，利用Heroku搭建V2速度杠杠的什么的。其实本来Heroku挺好的，如果滥用的话容易被封号。虾皮路刚好在逛LOC的时候发现个不错的文章，就是介绍Heroku+<a target="_blank" rel="noopener" href="https://www.shopee6.com/tag/157">Cloudflare</a>+V2搭建图文教程，转载记录一下。</p>
+<p>本文目录<a target="_blank" rel="noopener" href="https://www.shopee6.com/web/web-tutorial/heroku-cloudflare-v2.html#ftoc-heading-1">一、Heroku是什么</a><a target="_blank" rel="noopener" href="https://www.shopee6.com/web/web-tutorial/heroku-cloudflare-v2.html#ftoc-heading-2">二、配置Heroku</a><a target="_blank" rel="noopener" href="https://www.shopee6.com/web/web-tutorial/heroku-cloudflare-v2.html#ftoc-heading-3">三、配置CloudFlare反向代理</a><a target="_blank" rel="noopener" href="https://www.shopee6.com/web/web-tutorial/heroku-cloudflare-v2.html#ftoc-heading-4">四、配置V2客户端</a></p>
+<h2 id="一、Heroku是什么"><a href="#一、Heroku是什么" class="headerlink" title="一、Heroku是什么"></a>一、Heroku是什么</h2><p>Heroku是一个支持多种编程语言的云平台即服务。在2010年被Salesforce.com收购。Heroku作为最开始的云平台之一，从2007年6月起开发，当时它仅支持Ruby，但后来增加了对Java、Node.js、Scala、Clojure、Python以及（未记录在正式文件上）PHP和Perl的支持。基础操作系统是Debian，在最新的堆栈则是基于Debian的Ubuntu。</p>
+<p>Heroku还提供的免费网站可以用于构建个人网站，非常适用于实验性质或是简单的博客系统。</p>
+<h2 id="二、配置Heroku"><a href="#二、配置Heroku" class="headerlink" title="二、配置Heroku"></a>二、配置Heroku</h2><p>1、首先注册Heroku账号，点击通过 <a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=2548bde654aHR0cHM6Ly9kYXNoYm9hcmQuaGVyb2t1LmNvbQ==">https://dashboard.heroku.com</a> 注册一个账号，注册时候不能使用QQ邮箱！</p>
+<p><a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=0eb179c6d7aHR0cHM6Ly9zaG9wZWU2LmZseHp6LmNvbS8yMDIwLzA3LzIwMjAwNzA4MDMzMjQzODcxLnBuZw=="><img src="https://shopee6.flxzz.com/2020/07/20200708033243871.png!sh6" alt="Heroku+Cloudflare+V2搭建详细图文教程插图1"></a></p>
+<p>2、注册成功以后登录，登录以后点击 <a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=7ffcaa09b0aHR0cHM6Ly9kYXNoYm9hcmQuaGVyb2t1LmNvbS9uZXc/dGVtcGxhdGU9aHR0cHMlM0ElMkYlMkZnaXRodWIuY29tJTJGYmNsc3dsMDgyNyUyRnYycmF5LWhlcm9rdQ==">https://dashboard.heroku.com/new?template=https%3A%2F%2Fgithub.com%2Fbclswl0827%2Fv2ray-heroku</a> 部署应用！名称随便填写就行了，然后点击 Deploy app 系统会自动部署。</p>
+<p><a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=45fc2aea9baHR0cHM6Ly9zaG9wZWU2LmZseHp6LmNvbS8yMDIwLzA3LzIwMjAwNzA4MDMzMjQ3NDQzLnBuZw=="><img src="https://shopee6.flxzz.com/2020/07/20200708033247443.png!sh6" alt="Heroku+Cloudflare+V2搭建详细图文教程插图2"></a></p>
+<p>3、部署完成以后，点击 Settings 再点击 Reveal Config Vars 就可以看见 UUID了！记下自己的UUID等会还是用到。</p>
+<p><a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=886e3e45e4aHR0cHM6Ly9zaG9wZWU2LmZseHp6LmNvbS8yMDIwLzA3LzIwMjAwNzA4MDMzMjUzODcwLnBuZw=="><img src="https://shopee6.flxzz.com/2020/07/20200708033253870.png!sh6" alt="Heroku+Cloudflare+V2搭建详细图文教程插图3"></a></p>
+<p>4、接着下滑，看见Domains项后有个域名！https://*****.herokuapp.com/ 记下域名，稍后配置CloudFlare 反向代理会用到！</p>
+<p><a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=e17b15bd94aHR0cHM6Ly9zaG9wZWU2LmZseHp6LmNvbS8yMDIwLzA3LzIwMjAwNzA4MDMzMjU4MzQ0LnBuZw=="><img src="https://shopee6.flxzz.com/2020/07/20200708033258344.png!sh6" alt="Heroku+Cloudflare+V2搭建详细图文教程插图4"></a></p>
+<h2 id="三、配置CloudFlare反向代理"><a href="#三、配置CloudFlare反向代理" class="headerlink" title="三、配置CloudFlare反向代理"></a>三、配置CloudFlare反向代理</h2><p>1、首先登陆CloudFlare官网，然后点击 右侧的 Workers ！</p>
+<p><a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=9ca6af5ecaaHR0cHM6Ly9zaG9wZWU2LmZseHp6LmNvbS8yMDIwLzA3LzIwMjAwNzA4MDMzMzAzMTM1LnBuZw=="><img src="https://shopee6.flxzz.com/2020/07/20200708033303135.png!sh6" alt="Heroku+Cloudflare+V2搭建详细图文教程插图5"></a></p>
+<p>2、接着点击创建Workers</p>
+<p><a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=0a828e0c20aHR0cHM6Ly9zaG9wZWU2LmZseHp6LmNvbS8yMDIwLzA3LzIwMjAwNzA4MDMzMzEwNTA0LnBuZw=="><img src="https://shopee6.flxzz.com/2020/07/20200708033310504.png!sh6" alt="Heroku+Cloudflare+V2搭建详细图文教程插图6"></a></p>
+<p>3、接着复制下方代码，并添加进去！注意把下面的中文替换成你之前在Domains项看见的那个域名前缀。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">addEventListener(</span><br><span class="line">  &quot;fetch&quot;,event &#x3D;&gt; &#123;</span><br><span class="line">     let url&#x3D;new URL(event.request.url);</span><br><span class="line">     url.hostname&#x3D;&quot;你的heroku域名.herokuapp.com&quot;;</span><br><span class="line">     let request&#x3D;new Request(url,event.request);</span><br><span class="line">     event. respondWith(</span><br><span class="line">       fetch(request)</span><br><span class="line">     )</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=d25c728ab2aHR0cHM6Ly9zaG9wZWU2LmZseHp6LmNvbS8yMDIwLzA3LzIwMjAwNzA4MDMzMzE2OTAyLnBuZw=="><img src="https://shopee6.flxzz.com/2020/07/20200708033316902.png!sh6" alt="Heroku+Cloudflare+V2搭建详细图文教程插图7"></a></p>
+<p>至此！CF就配置完成了，接下来开始配置V2客户端！</p>
+<h2 id="四、配置V2客户端"><a href="#四、配置V2客户端" class="headerlink" title="四、配置V2客户端"></a>四、配置V2客户端</h2><p>1、客户端下载地址：<a target="_blank" rel="noopener" href="https://c-t.work/s/f8cae431052b4a">https://c-t.work/s/f8cae431052b4a</a> 取件码：y258qy</p>
+<p>2、配置客户端。请按照图片的要求设置！否则不能联网！</p>
+<p><a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=4d9e389550aHR0cHM6Ly9zaG9wZWU2LmZseHp6LmNvbS8yMDIwLzA3LzIwMjAwNzA4MDMzMzIxODkwLnBuZw=="><img src="https://shopee6.flxzz.com/2020/07/20200708033321890.png!sh6" alt="Heroku+Cloudflare+V2搭建详细图文教程插图8"></a></p>
+<p>3、测试是否生效！我这里用的是笨牛网自选的IP，速度不是很好。如果有大佬有效果理想的，可以分享给我一个。</p>
+<p><a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=9658819c12aHR0cHM6Ly9zaG9wZWU2LmZseHp6LmNvbS8yMDIwLzA3LzIwMjAwNzA4MDMzMzMwMjE3LnBuZw=="><img src="https://shopee6.flxzz.com/2020/07/20200708033330217.png!sh6" alt="Heroku+Cloudflare+V2搭建详细图文教程插图9"></a></p>
+<p>4、实际效果图</p>
+<p><a target="_blank" rel="noopener" href="https://www.shopee6.com/go?_=d8fcef283baHR0cHM6Ly9zaG9wZWU2LmZseHp6LmNvbS8yMDIwLzA3LzIwMjAwNzA4MDMzNDA4MjQ0LnBuZw=="><img src="https://shopee6.flxzz.com/2020/07/20200708033408244.png!sh6" alt="Heroku+Cloudflare+V2搭建详细图文教程插图10"></a></p>
+<p>文章部分内容来源为主机镇。</p>
+<h2 id="特殊情况处理"><a href="#特殊情况处理" class="headerlink" title="特殊情况处理"></a>特殊情况处理</h2><p>5、如果按照教程出现500 Internal Privoxy Error，那么workers的域名不要添加https和/即可。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Heroku/" rel="tag"># Heroku</a>
+              <a href="/tags/v2ray/" rel="tag"># v2ray</a>
+              <a href="/tags/%E6%A2%AF%E5%AD%90/" rel="tag"># 梯子</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/03/google%E4%BA%91%E7%94%B3%E8%AF%B7%E6%95%99%E7%A8%8B/" rel="prev" title="google云申请教程">
+      <i class="fa fa-chevron-left"></i> google云申请教程
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Heroku-Cloudflare-V2%E6%90%AD%E5%BB%BA%E8%AF%A6%E7%BB%86%E5%9B%BE%E6%96%87%E6%95%99%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">Heroku+Cloudflare+V2搭建详细图文教程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81Heroku%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">1.1.</span> <span class="nav-text">一、Heroku是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%85%8D%E7%BD%AEHeroku"><span class="nav-number">1.2.</span> <span class="nav-text">二、配置Heroku</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E9%85%8D%E7%BD%AECloudFlare%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86"><span class="nav-number">1.3.</span> <span class="nav-text">三、配置CloudFlare反向代理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E9%85%8D%E7%BD%AEV2%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="nav-number">1.4.</span> <span class="nav-text">四、配置V2客户端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5%E5%A4%84%E7%90%86"><span class="nav-number">1.5.</span> <span class="nav-text">特殊情况处理</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="功夫大侠"
+      src="/images/2.jpg">
+  <p class="site-author-name" itemprop="name">功夫大侠</p>
+  <div class="site-description" itemprop="description">欢迎常来做做哦：）</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fast2021" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fast2021" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://51hsk2020.qicp.io/" title="http:&#x2F;&#x2F;51hsk2020.qicp.io&#x2F;" rel="noopener" target="_blank">花生壳Nas</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">功夫大侠</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '3dvNw68uBeiOPGMRPgdSxIzP-gzGzoHsz',
+      appKey     : 'GQeJBMOKkCPNdKAzcxNDKrTl',
+      placeholder: "留下你的评论吧",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
