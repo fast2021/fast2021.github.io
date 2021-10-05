@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="写在最前看到大佬们的网页可以播放音乐，不得不说我是有点心动的，所以就在这里放一下教程。写这个的时候我也在一边试着安装，算是先驱者。 有两种方式，一种是安装源文件支持，在所有的网页输出上放置播放器，这样你哪个网页都可以看到它。 还有一种是安装插件，这个可以在文章中自定义样式，如此一来，只有当你点开文章的时候才能看到它。 我个人比较倾向于第二种，但这里我都会说，事实上引用的不是同一个js的情况下，貌似">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Aplayer播放音乐">
+<meta property="og:url" content="http://example.com/2021/10/05/Aplayer%E6%92%AD%E6%94%BE%E9%9F%B3%E4%B9%90/index.html">
+<meta property="og:site_name" content="阿宝的小屋">
+<meta property="og:description" content="写在最前看到大佬们的网页可以播放音乐，不得不说我是有点心动的，所以就在这里放一下教程。写这个的时候我也在一边试着安装，算是先驱者。 有两种方式，一种是安装源文件支持，在所有的网页输出上放置播放器，这样你哪个网页都可以看到它。 还有一种是安装插件，这个可以在文章中自定义样式，如此一来，只有当你点开文章的时候才能看到它。 我个人比较倾向于第二种，但这里我都会说，事实上引用的不是同一个js的情况下，貌似">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-05T11:50:06.000Z">
+<meta property="article:modified_time" content="2021-10-05T12:23:29.063Z">
+<meta property="article:author" content="功夫大侠">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="music">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/10/05/Aplayer%E6%92%AD%E6%94%BE%E9%9F%B3%E4%B9%90/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Aplayer播放音乐 | 阿宝的小屋</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">阿宝的小屋</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/05/Aplayer%E6%92%AD%E6%94%BE%E9%9F%B3%E4%B9%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/2.jpg">
+      <meta itemprop="name" content="功夫大侠">
+      <meta itemprop="description" content="欢迎常来做做哦：）">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="阿宝的小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Aplayer播放音乐
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-10-05 19:50:06 / 修改时间：20:23:29" itemprop="dateCreated datePublished" datetime="2021-10-05T19:50:06+08:00">2021-10-05</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/10/05/Aplayer%E6%92%AD%E6%94%BE%E9%9F%B3%E4%B9%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/05/Aplayer%E6%92%AD%E6%94%BE%E9%9F%B3%E4%B9%90/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="写在最前"><a href="#写在最前" class="headerlink" title="写在最前"></a>写在最前</h1><p>看到大佬们的网页可以播放音乐，不得不说我是有点心动的，所以就在这里放一下教程。写这个的时候我也在一边试着安装，算是先驱者。 有两种方式，一种是安装源文件支持，在所有的网页输出上放置播放器，这样你哪个网页都可以看到它。 还有一种是安装插件，这个可以在文章中自定义样式，如此一来，只有当你点开文章的时候才能看到它。 我个人比较倾向于第二种，但这里我都会说，事实上引用的不是同一个js的情况下，貌似也不冲突吧。 （穿越回来的我：事实上体质特殊就是体质特殊，各种无效很无奈。）</p>
+<h1 id="安装源文件方式（未能成功，但教程按理说没问题）"><a href="#安装源文件方式（未能成功，但教程按理说没问题）" class="headerlink" title="安装源文件方式（未能成功，但教程按理说没问题）"></a>安装源文件方式（未能成功，但教程按理说没问题）</h1><p>参考教程：<a target="_blank" rel="noopener" href="https://asdfv1929.github.io/2018/05/26/next-add-music/">Hexo NexT主题中添加网页音乐播放器功能</a></p>
+<p><audio src="https://www.ytmp3.cn/down/59298.mp3"> </audio></p>
+<span id="more"></span>
+
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>先要在官网下载源码：<a target="_blank" rel="noopener" href="https://github.com/MoePlayer/APlayer">MoePlayer/APlayer</a> <del>总共也就200kb不到，就别捣鼓什么git clone了</del> 解压后将dist文件夹复制到~\themes\next\source文件夹下。</p>
+<h2 id="新建music-js"><a href="#新建music-js" class="headerlink" title="新建music.js"></a>新建music.js</h2><p>新建 Hexo\themes\next\source\dist\music.js 文件，添加内容：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> ap = <span class="keyword">new</span> APlayer(&#123;</span><br><span class="line">    container: <span class="built_in">document</span>.getElementById(<span class="string">&#x27;aplayer&#x27;</span>),</span><br><span class="line">    fixed: <span class="literal">true</span>,</span><br><span class="line">    autoplay: <span class="literal">false</span>,</span><br><span class="line">    audio: [</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">&quot;China-Y&quot;</span>,</span><br><span class="line">        artist: <span class="string">&#x27;徐梦圆&#x27;</span>,</span><br><span class="line">        url: <span class="string">&#x27;https://www.ytmp3.cn/down/59298.mp3down/39868.mp3&#x27;</span>,</span><br><span class="line">        cover: <span class="string">&#x27;https://oeff2vktt.bkt.clouddn.com/image/84.jpg&#x27;</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: <span class="string">&#x27;China-X&#x27;</span>,</span><br><span class="line">        artist: <span class="string">&#x27;徐梦圆&#x27;</span>,</span><br><span class="line">        url: <span class="string">&#x27;https://www.ytmp3.cn/down/49003.mp3&#x27;</span>,</span><br><span class="line">        cover: <span class="string">&#x27;https://oeff2vktt.bkt.clouddn.com/image/8.jpg&#x27;</span>,</span><br><span class="line">      &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>以上是基本参数，还有更多参数可以参考这个<a target="_blank" rel="noopener" href="https://aplayer.js.org/#/zh-Hans/">Aplayer中文文档</a></p>
+<p><strong>audio</strong>对应的便是音频文件，所以音乐播放器需要播放的音乐是需要自己进行相关信息（如歌曲链接、歌词、封面等）的配置。</p>
+<p>顺便附上一个<a target="_blank" rel="noopener" href="https://www.ytmp3.cn/">mp3音乐外链网</a></p>
+<h2 id="修改-layout-swig"><a href="#修改-layout-swig" class="headerlink" title="修改_layout.swig"></a>修改_layout.swig</h2><p>这一步也是决定能否在你的所有页面显示的关键。</p>
+<p>打开**<code>\themes\next\layout\_layout.swig</code>**文件，将以下内容加入到<code>&lt;body itemscope ...&gt;</code> 后面就行，即在<code>&lt;body&gt;&lt;/body&gt;</code> 里面。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;link rel=<span class="string">&quot;stylesheet&quot;</span> href=<span class="string">&quot;/dist/APlayer.min.css&quot;</span>&gt;</span><br><span class="line">&lt;div id=<span class="string">&quot;aplayer&quot;</span>&gt;&lt;/div&gt;</span><br><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;/dist/APlayer.min.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span> src=<span class="string">&quot;/dist/music.js&quot;</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>之后使用hexo clean 和 hexo g 重新编译页面，就能看到左下角的音乐播放器了。(然而这个方法我并没有成功)</p>
+<h1 id="插件安装方式（推荐）"><a href="#插件安装方式（推荐）" class="headerlink" title="插件安装方式（推荐）"></a>插件安装方式（推荐）</h1><p><a href="https://akilar.top[https//github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md](https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md)">hexo-tag-aplayer使用文档</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在根目录下使用命令行安装</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-tag-aplayer</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用（本地预览成功，提交后却不见了）"><a href="#使用（本地预览成功，提交后却不见了）" class="headerlink" title="使用（本地预览成功，提交后却不见了）"></a>使用（本地预览成功，提交后却不见了）</h2><p>在你的文章中通过以下格式引用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% aplayer title author url [picture_url, narrow, autoplay, <span class="attr">width</span>:xxx, <span class="attr">lrc</span>:xxx] %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>参数不止这些，具体可以参看使用手册，虽说也不是很详细就是了。</p>
+<p>使用示例，例如在网页里放以下代码，会加载出单曲图标。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% aplayer <span class="string">&quot;China-Y&quot;</span> <span class="string">&quot;徐梦圆&quot;</span> <span class="string">&quot;https://www.ytmp3.cn/down/59298.mp3&quot;</span> %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在网页里放以下代码，会加载出歌曲列表。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;% aplayerlist %&#125;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;narrow&quot;</span>: <span class="literal">false</span>,                          </span><br><span class="line">    <span class="string">&quot;autoplay&quot;</span>: <span class="literal">true</span>,                         by mobile browsers</span><br><span class="line">    <span class="string">&quot;mode&quot;</span>: <span class="string">&quot;random&quot;</span>,                         </span><br><span class="line">    <span class="string">&quot;showlrc&quot;</span>: <span class="number">3</span>,                             </span><br><span class="line">    <span class="string">&quot;mutex&quot;</span>: <span class="literal">true</span>,                            player playing</span><br><span class="line">    <span class="string">&quot;theme&quot;</span>: <span class="string">&quot;#e6d0b2&quot;</span>,	                     </span><br><span class="line">    <span class="string">&quot;preload&quot;</span>: <span class="string">&quot;metadata&quot;</span>,                    <span class="string">&#x27;none&#x27;</span> <span class="string">&#x27;metadata&#x27;</span> <span class="string">&#x27;auto&#x27;</span>, <span class="attr">default</span>: <span class="string">&#x27;auto&#x27;</span></span><br><span class="line">    <span class="string">&quot;listmaxheight&quot;</span>: <span class="string">&quot;513px&quot;</span>,                 </span><br><span class="line">    <span class="string">&quot;music&quot;</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">             <span class="string">&quot;title&quot;</span>: <span class="string">&quot;病名为爱&quot;</span>,</span><br><span class="line">            <span class="string">&quot;author&quot;</span>: <span class="string">&quot;祖娅纳惜&quot;</span>,</span><br><span class="line">            <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://www.ytmp3.cn/down/60477.mp3&quot;</span>,</span><br><span class="line">            <span class="string">&quot;pic&quot;</span>: <span class="string">&quot;https://img.ytmp3.cn/image/49.jpg&quot;</span>,</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">&quot;title&quot;</span>: <span class="string">&quot;アイロニ&quot;</span>,</span><br><span class="line">            <span class="string">&quot;author&quot;</span>: <span class="string">&quot;鹿乃&quot;</span>,</span><br><span class="line">            <span class="string">&quot;url&quot;</span>: <span class="string">&quot;https://www.ytmp3.cn/down/35231.mp3&quot;</span>,</span><br><span class="line">            <span class="string">&quot;pic&quot;</span>: <span class="string">&quot;https://img.ytmp3.cn/image/6.jpg&quot;</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endaplayerlist %&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="进阶教程MeingJS（成功，网易云真香）"><a href="#进阶教程MeingJS（成功，网易云真香）" class="headerlink" title="进阶教程MeingJS（成功，网易云真香）"></a>进阶教程MeingJS（成功，网易云真香）</h2><p>MetingJS 是基于Meting API 的 APlayer 衍生播放器，引入 MetingJS 后，播放器将支持对于 QQ音乐、网易云音乐、虾米、酷狗、百度等平台的音乐播放。</p>
+<p>如果想在本插件中使用 MetingJS，请在 Hexo 配置文件 _config.yml 中设置:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">aplayer:</span><br><span class="line">  meting: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>接着就可以通过以下格式在文章中使用 MetingJS 播放器了：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 简单示例 (id, server, type)  --&gt;</span><br><span class="line">&#123;% meting <span class="string">&quot;2597489971&quot;</span> <span class="string">&quot;netease&quot;</span> <span class="string">&quot;playlist&quot;</span> %&#125;</span><br><span class="line"></span><br><span class="line">&lt;!-- 进阶示例 --&gt;</span><br><span class="line">&#123;% meting <span class="string">&quot;2597489971&quot;</span> <span class="string">&quot;netease&quot;</span> <span class="string">&quot;playlist&quot;</span> <span class="string">&quot;autoplay&quot;</span> <span class="string">&quot;mutex:false&quot;</span> <span class="string">&quot;listmaxheight:340px&quot;</span> <span class="string">&quot;preload:none&quot;</span> <span class="string">&quot;theme:#ad7a86&quot;</span>%&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里放了一个我的网易云歌单，但是可能依然没有加载出来。</p>
+<p>今天的踩坑结论：因为各种各样的我不知道的理由，总之我不配拥有上面网页音乐。它的加载与否太过随性。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/music/" rel="tag"># music</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/26/%E4%BA%BA%E9%A1%9E%E6%9C%80%E9%81%A0%E5%8F%AF%E4%BB%A5%E5%88%B0%E9%81%94%E5%AE%87%E5%AE%99%E7%9A%84%E4%BB%80%E9%BA%BD%E5%9C%B0%E6%96%B9/" rel="prev" title="人類最遠可以到達宇宙的什麽地方">
+      <i class="fa fa-chevron-left"></i> 人類最遠可以到達宇宙的什麽地方
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D"><span class="nav-number">1.</span> <span class="nav-text">写在最前</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%BA%90%E6%96%87%E4%BB%B6%E6%96%B9%E5%BC%8F%EF%BC%88%E6%9C%AA%E8%83%BD%E6%88%90%E5%8A%9F%EF%BC%8C%E4%BD%86%E6%95%99%E7%A8%8B%E6%8C%89%E7%90%86%E8%AF%B4%E6%B2%A1%E9%97%AE%E9%A2%98%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">安装源文件方式（未能成功，但教程按理说没问题）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">2.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BAmusic-js"><span class="nav-number">2.2.</span> <span class="nav-text">新建music.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-layout-swig"><span class="nav-number">2.3.</span> <span class="nav-text">修改_layout.swig</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8F%92%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">插件安装方式（推荐）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%EF%BC%88%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88%E6%88%90%E5%8A%9F%EF%BC%8C%E6%8F%90%E4%BA%A4%E5%90%8E%E5%8D%B4%E4%B8%8D%E8%A7%81%E4%BA%86%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">使用（本地预览成功，提交后却不见了）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8BMeingJS%EF%BC%88%E6%88%90%E5%8A%9F%EF%BC%8C%E7%BD%91%E6%98%93%E4%BA%91%E7%9C%9F%E9%A6%99%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">进阶教程MeingJS（成功，网易云真香）</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="功夫大侠"
+      src="/images/2.jpg">
+  <p class="site-author-name" itemprop="name">功夫大侠</p>
+  <div class="site-description" itemprop="description">欢迎常来做做哦：）</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/fast2021" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;fast2021" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://51hsk2020.qicp.io/" title="http:&#x2F;&#x2F;51hsk2020.qicp.io&#x2F;" rel="noopener" target="_blank">花生壳Nas</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">功夫大侠</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : '3dvNw68uBeiOPGMRPgdSxIzP-gzGzoHsz',
+      appKey     : 'GQeJBMOKkCPNdKAzcxNDKrTl',
+      placeholder: "留下你的评论吧",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<link rel="stylesheet" href="/dist/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="/dist/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+</body>
+</html>
