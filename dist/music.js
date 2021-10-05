@@ -4,15 +4,15 @@ const ap = new APlayer({
     autoplay: false,
     audio: [
       {
-        name: "China-Y",
-        artist: '徐梦圆',
-        url: 'https://www.ytmp3.cn/down/59298.mp3down/39868.mp3',
+        name: "Ancient Legends",
+        artist: 'Tony chen',
+        url: 'https://3x192928s1.eicp.vip/Share/Ancient%20Legends.m4a',
         cover: 'https://oeff2vktt.bkt.clouddn.com/image/84.jpg',
       },
       {
-        name: 'China-X',
-        artist: '徐梦圆',
-        url: 'https://www.ytmp3.cn/down/49003.mp3',
+        name: 'Hope',
+        artist: 'Tony chen',
+        url: 'https://3x192928s1.eicp.vip/Share/Hope.m4a',
         cover: 'https://oeff2vktt.bkt.clouddn.com/image/8.jpg',
       },
     ]
